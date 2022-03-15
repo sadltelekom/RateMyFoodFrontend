@@ -1,0 +1,14 @@
+#notfound {
+    display: block;
+    background-image: url('../../assets/images/404.png');
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 650px;
+ 
+}
+
+#notfound img{
+    height: 650px;
+}
