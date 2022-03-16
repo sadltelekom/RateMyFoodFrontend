@@ -10,6 +10,16 @@ export class ReciperestservService {
   constructor(private http: HttpClient) { }
 
   getRecipeById(id: number) {
-    return this.http.get<Dbrecipe[]>(this.apiUrl + id);
+    let apiUrlNew = this.apiUrl+ id;
+    return this.http.get<Dbrecipe[]>(apiUrlNew);
+  }
+
+  getAllRecipes() {
+    return this.http.get<Dbrecipe[]>("http://localhost:8080/get/recipes/all/");
+  }
+
+  getRecipeByName(name: string) {
+    let apiUrlNew = "http://localhost:8080/get/recipes/namepart/"+name;
+    return this.http.get<Dbrecipe[]>(apiUrlNew);
   }
 }

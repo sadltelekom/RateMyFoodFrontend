@@ -10,7 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RecipesComponent } from './recipes/recipes.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CommentComponent } from './comment/comment.component'
+import { CommentComponent } from './comment/comment.component';
+import { RecipelistComponent } from './recipelist/recipelist.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CommentComponent } from './comment/comment.component'
     HomeComponent,
     RecipesComponent,
     FileuploadComponent,
-    CommentComponent
+    CommentComponent,
+    RecipelistComponent
   ],
   imports: [
     BrowserModule,

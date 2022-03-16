@@ -1,0 +1,32 @@
+
+<div id="pagecontent">
+    <section class="container">
+        <section class="col">
+
+            <table class="table" *ngIf="recipes.length">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Time to make</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let recipe of recipes" (click)="openRecipe(recipe.id)">
+                        <td>{{ recipe.name }}</td>
+                        <td>{{ recipe.time }}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">Total: {{ recipes.length }}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+    </section>
+
+
+</div>
+
+
