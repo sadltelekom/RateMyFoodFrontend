@@ -9,7 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecipesComponent } from './recipes/recipes.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { CommentComponent } from './comment/comment.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http'
     NotfoundComponent,
     HomeComponent,
     RecipesComponent,
-    FileuploadComponent
+    FileuploadComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

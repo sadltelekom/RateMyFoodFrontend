@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 import { LoginserviceService } from 'src/app/serv/loginservice.service';
 
 @Component({
@@ -26,7 +27,9 @@ export class LoginComponent implements OnInit {
     });
   
   login() {
+    
     this.loginservice.setUser(this.loginForm.value);
+    
     this.router.navigate(['']);
    }  
 

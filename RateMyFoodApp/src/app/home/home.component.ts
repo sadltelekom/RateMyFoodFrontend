@@ -9,8 +9,8 @@ import { LoginserviceService } from '../serv/loginservice.service';
 export class HomeComponent implements OnInit {
   username: string= "";
 
-  constructor(loginservice: LoginserviceService) { 
-    this.username = loginservice.getUsername();
+  constructor( private loginservice: LoginserviceService) { 
+    this.username = this.loginservice.getUsername();
   }
 
   ngOnInit(): void {

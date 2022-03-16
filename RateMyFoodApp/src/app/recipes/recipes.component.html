@@ -1,1 +1,61 @@
-<p>recipes works!</p>
+<div id="pagecontent">
+
+    <div id="recipe_name">
+        <h2> {{ name }}</h2>
+    </div>
+    <div id="recipe_picture">
+        <img [src]="pictureurl" [alt]="name" title="" width="400px">
+    </div>
+    <div id="ingredients">
+        <p>Get Ingredients</p>
+    </div>
+    <div id="time">
+        <h3>Cooking time</h3>
+        <p>{{ time }} minutes</p>
+    </div>
+
+    <div id="recipe">
+        <h3>How to make</h3>
+        <p>{{ recipe }}</p>
+    </div>
+    <div id="course">
+        <p>Get course</p>
+    </div>
+    <div id="category">
+        <p>Get category</p>
+    </div>
+    <div id="rating">
+        <h3>Rating :</h3> {{ rating }}
+    </div>
+
+    <div id="comments">
+        <section class="container">
+            <section class="col">
+              
+                <h3>Comment List :</h3>
+                <table class="table" *ngIf="comments.length">
+                    <thead>
+                        <tr>
+                           <th>Comment</th>
+                        </tr>
+                    </thead>
+        
+                    <tbody>
+                        <tr *ngFor="let comment of comments">
+                            <td>{{ comment.comment }}</td>
+                                                               
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Total: {{ comments.length }}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+        </section>
+        <p *ngIf=" username !== ''"><button (click)="addComment()">Add Comment</button></p>
+    </div>
+
+
+</div>

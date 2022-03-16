@@ -3,6 +3,10 @@
     display: flex;
 }
 
+.container {
+    display: flex; 
+}
+
 #pagecontent {
  
     text-align: center;
@@ -17,6 +21,7 @@
 .table {
     border-collapse: collapse;
     width: 450px;
+    margin: auto;
 }
 .table, .table th, .table td {
     border: 1px solid #000;

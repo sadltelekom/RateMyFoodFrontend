@@ -8,6 +8,7 @@
     border: 2px solid red;
     border-radius: 10px;
     text-align: center;
+    margin: 10px 20px;
     padding: 4px;
 }
 #top_menu_box button {
@@ -16,7 +17,6 @@
   border: 2px solid red;
   border-radius: 100%;
   padding: 4px;
-  margin: 8px;
   cursor: pointer;
 }
 

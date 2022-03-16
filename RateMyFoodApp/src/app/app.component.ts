@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { LoginserviceService } from './serv/loginservice.service';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Rate my food app';
-  searchterm = "";
+  username :string  = "";
   
   searchRecipes(term: string) {
     console.log("search clicked");
     console.log(term);
-    this.searchterm = this.searchterm;
+    (<HTMLInputElement>document.getElementById("search_bar")).value="";
+  
   }
 }
