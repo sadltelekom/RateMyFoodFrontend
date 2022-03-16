@@ -4,10 +4,36 @@
         <h2>{{ name }}</h2>
     </div>
     <div id="recipe_picture">
-        <img [src]="pictureurl" [alt]="name" title="" width="400px">
+        <img [src]="pictureurl[pictureindex]" [alt]="name" title="" width="400px" (click)="addPictureindex()">
     </div>
-    <div id="ingredients">
-        <p>Get Ingredients</p>
+    <div id="ingredients" *ngIf="ingredients.length">
+        <h3>Ingredients</h3>
+        <section class="container">
+            <section class="col">
+
+                <table class="table" *ngIf="ingredients.length">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let ingredient of ingredients">
+                            <td>{{ ingredient.name }}</td>
+                            <td>{{ ingredient.amount }}</td>
+                            
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">Total: {{ ingredients.length }}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+        </section>
     </div>
     <div id="time">
         <h3>Cooking time</h3>
@@ -18,14 +44,21 @@
         <h3>How to make</h3>
         <p>{{ recipe }}</p>
     </div>
-    <div id="course">
-        <p>Get course</p>
-    </div>
     <div id="category">
-        <p>Get category</p>
+        <h3>Category</h3>
+        <p>{{ categoryname }}</p>
     </div>
     <div id="rating">
-        <h3>Rating :</h3> {{ rating }}
+         <!-- <h3>Rating :</h3> {{ rating }} -->
+         <p class="sternebewertung" *ngIf="rating">
+            <input type="radio" id="stern5" name="bewertung" value="5" *ngIf="rating === 5" checked><label for="stern5" title="5 Stars" (click)="addRating(5)">5 Stars </label>
+            <input type="radio" id="stern4" name="bewertung" value="4" *ngIf="rating === 4" checked><label for="stern4" title="4 Stars" (click)="addRating(4)">4 Stars</label>
+            <input type="radio" id="stern3" name="bewertung" value="3" *ngIf="rating === 3" checked><label for="stern3" title="3 Stars" (click)="addRating(3)">3 Stars</label>
+            <input type="radio" id="stern2" name="bewertung" value="2" *ngIf="rating === 2" checked><label for="stern2" title="2 Stars" (click)="addRating(2)">2 Stars</label>
+            <input type="radio" id="stern1" name="bewertung" value="1" *ngIf="rating === 1" checked><label for="stern1" title="1 Star" (click)="addRating(1)">1 Star</label>
+            <span id="Bewertung" title="Keine Bewertung">
+            </span>
+        </p> 
     </div>
 
     <div id="comments">
@@ -52,7 +85,7 @@
                 </table>
             </section>
         </section>
-        <p *ngIf=" username !== ''"><button (click)="addComment()">Add Comment</button></p>
+        <p *ngIf=" username !== 'Guest'"><button (click)="addComment()">Add Comment</button></p>
     </div>
 
 

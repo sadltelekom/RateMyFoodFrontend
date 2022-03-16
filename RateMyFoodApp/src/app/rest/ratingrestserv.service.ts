@@ -15,4 +15,15 @@ export class RatingrestservService {
     return this.http.get<Dbrating>(apiUrlNew);
   }
   
+  giveRating(id: number,rating_new: number, userid: number) {
+      let apiUrlNew = "http://localhost:8080/post/rating/";
+      let ratingObject={
+        recipeId: id,
+        rating: rating_new,
+        userId: userid
+      };
+    
+      return this.http.post(apiUrlNew,ratingObject).subscribe();
+  }
+
 }
