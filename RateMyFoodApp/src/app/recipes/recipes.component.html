@@ -1,7 +1,7 @@
 <div id="pagecontent">
 
     <div id="recipe_name">
-        <h2> {{ name }}</h2>
+        <h2>{{ name }}</h2>
     </div>
     <div id="recipe_picture">
         <img [src]="pictureurl" [alt]="name" title="" width="400px">
@@ -31,19 +31,17 @@
     <div id="comments">
         <section class="container">
             <section class="col">
-              
-                <h3>Comment List :</h3>
+
                 <table class="table" *ngIf="comments.length">
                     <thead>
                         <tr>
-                           <th>Comment</th>
+                            <th>Comment</th>
                         </tr>
                     </thead>
-        
+
                     <tbody>
                         <tr *ngFor="let comment of comments">
                             <td>{{ comment.comment }}</td>
-                                                               
                         </tr>
                     </tbody>
                     <tfoot>
