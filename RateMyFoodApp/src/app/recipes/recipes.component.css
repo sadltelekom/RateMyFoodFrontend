@@ -9,17 +9,47 @@ button {
 }
 
 #pagecontent {
+  margin-top: 25px;
+  
+  align-content: space-around;
   
 }
 
 #content-top {
   display: flex;
   justify-content: space-evenly;
+  width: 100%;
 }
 
+#recipe-intro {
+  position: relative;
+  text-align: left;
+  width: 50%;
+  margin-left: 1%;
+
+
+}
+
+#picture-left {
+  width: 50%;
+  text-align: right;
+  margin-right: 1%;
+  
+}
+
+#image {
+  max-width: 100%;
+  width: 400px;
+}
+
+
+
+
 #content-bottom {
+  
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 25px;
 }
 
 

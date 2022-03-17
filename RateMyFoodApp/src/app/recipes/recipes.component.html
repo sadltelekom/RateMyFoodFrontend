@@ -3,7 +3,7 @@
     <section id="content-top">
         <section id="picture-left">
             <div id="recipe_picture">
-                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.madamecuisine.de%2Fomas-kartoffelsuppe%2F&psig=AOvVaw0fzVSc8AmLB90WEAGnSOLE&ust=1647590146245000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPCx8NzVzPYCFQAAAAAdAAAAABAD" alt="name" title="picture" width="400px" (click)="addPictureindex()">
+                <img [src]="pictureurl[pictureindex]" [alt]="name" title="" id="image" (click)="addPictureindex()">
             </div>
         </section>
         <section id="recipe-intro">
