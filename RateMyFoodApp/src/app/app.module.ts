@@ -11,7 +11,8 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommentComponent } from './comment/comment.component';
-import { RecipelistComponent } from './recipelist/recipelist.component'
+import { RecipelistComponent } from './recipelist/recipelist.component';
+import { AddrecipeComponent } from './addrecipe/addrecipe.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RecipelistComponent } from './recipelist/recipelist.component'
     RecipesComponent,
     FileuploadComponent,
     CommentComponent,
-    RecipelistComponent
+    RecipelistComponent,
+    AddrecipeComponent
   ],
   imports: [
     BrowserModule,

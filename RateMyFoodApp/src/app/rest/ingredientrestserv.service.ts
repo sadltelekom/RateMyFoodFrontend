@@ -14,4 +14,10 @@ export class IngredientrestservService {
     let apiUrlNew = this.apiUrl+ id;
     return this.http.get<Dbingredient[]>(apiUrlNew);
   }
+  
+  getAllIngredients() {
+    let apiUrlNew = "http://localhost:8080/get/ingredients/";
+    return this.http.get<Dbingredient[]>(apiUrlNew);
+  }
+
 }
