@@ -4,7 +4,10 @@
         <section id="picture-left">
             <div id="recipe_picture">
                 <img [src]="pictureurl[pictureindex]" [alt]="name" title="" id="image" (click)="addPictureindex()">
-                <p *ngIf=" username !== 'Guest'"><button (click)="addPicture()">Add Picture</button></p>
+                
+            </div>
+            <div>
+            <p id="addpicture" *ngIf=" username !== ''"><button (click)="addPicture()">Add Picture</button></p>
             </div>
         </section>
         <section id="recipe-intro">
