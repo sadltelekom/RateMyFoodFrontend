@@ -14,4 +14,9 @@ export class CategoryrestservService {
     let apiUrlNew = this.apiUrl+ id;
     return this.http.get<Dbcategory>(apiUrlNew);
   }
+
+  getAllCategorys() {
+    let apiUrlNew = "http://localhost:8080/get/categories/";
+    return this.http.get<Dbcategory[]>(apiUrlNew);
+  }
 }
