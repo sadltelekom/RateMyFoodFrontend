@@ -8,6 +8,34 @@ button {
   cursor: pointer;
 }
 
+#pagecontent {
+  
+}
+
+#content-top {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#content-bottom {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #recipe {
   margin: auto;
   width: 65%;

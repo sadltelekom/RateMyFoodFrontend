@@ -1,65 +1,79 @@
 <div id="pagecontent">
 
-    <div id="recipe_name">
-        <h2>{{ name }}</h2>
-    </div>
-    <div id="recipe_picture">
-        <img [src]="pictureurl[pictureindex]" [alt]="name" title="" width="400px" (click)="addPictureindex()">
-    </div>
-    <div id="ingredients" *ngIf="ingredients.length">
-        <h3>Ingredients</h3>
-        <section class="container">
-            <section class="col">
-
-                <table class="table" *ngIf="ingredients.length">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr *ngFor="let ingredient of ingredients">
-                            <td>{{ ingredient.name }}</td>
-                            <td>{{ ingredient.amount }}</td>
-                            
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="2">Total: {{ ingredients.length }}</td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </section>
+    <section id="content-top">
+        <section id="picture-left">
+            <div id="recipe_picture">
+                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.madamecuisine.de%2Fomas-kartoffelsuppe%2F&psig=AOvVaw0fzVSc8AmLB90WEAGnSOLE&ust=1647590146245000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPCx8NzVzPYCFQAAAAAdAAAAABAD" alt="name" title="picture" width="400px" (click)="addPictureindex()">
+            </div>
         </section>
-    </div>
-    <div id="time">
-        <h3>Cooking time</h3>
-        <p>{{ time }} minutes</p>
-    </div>
+        <section id="recipe-intro">
+            <div id="recipe_name">
+                <h2>{{ name }}</h2>
+            </div>
+            <div id="category">
+                <h3>Category</h3>
+                <p>{{ categoryname }}</p>
+            </div>
+            <div id="rating">
+                <!-- <h3>Rating :</h3> {{ rating }} -->
+                <p class="sternebewertung" *ngIf="rating">
+                   <input type="radio" id="stern5" name="bewertung" value="5" *ngIf="rating === 5" checked><label for="stern5" title="5 Stars" (click)="addRating(5)">5 Stars </label>
+                   <input type="radio" id="stern4" name="bewertung" value="4" *ngIf="rating === 4" checked><label for="stern4" title="4 Stars" (click)="addRating(4)">4 Stars</label>
+                   <input type="radio" id="stern3" name="bewertung" value="3" *ngIf="rating === 3" checked><label for="stern3" title="3 Stars" (click)="addRating(3)">3 Stars</label>
+                   <input type="radio" id="stern2" name="bewertung" value="2" *ngIf="rating === 2" checked><label for="stern2" title="2 Stars" (click)="addRating(2)">2 Stars</label>
+                   <input type="radio" id="stern1" name="bewertung" value="1" *ngIf="rating === 1" checked><label for="stern1" title="1 Star" (click)="addRating(1)">1 Star</label>
+                   <span id="Bewertung" title="Keine Bewertung">
+                   </span>
+               </p> 
+           </div>
+           <div id="time">
+            <h3>Cooking time</h3>
+            <p>{{ time }} minutes</p>
+            </div>
+        </section>
+    </section>
 
-    <div id="recipe">
-        <h3>How to make</h3>
-        <p>{{ recipe }}</p>
-    </div>
-    <div id="category">
-        <h3>Category</h3>
-        <p>{{ categoryname }}</p>
-    </div>
-    <div id="rating">
-         <!-- <h3>Rating :</h3> {{ rating }} -->
-         <p class="sternebewertung" *ngIf="rating">
-            <input type="radio" id="stern5" name="bewertung" value="5" *ngIf="rating === 5" checked><label for="stern5" title="5 Stars" (click)="addRating(5)">5 Stars </label>
-            <input type="radio" id="stern4" name="bewertung" value="4" *ngIf="rating === 4" checked><label for="stern4" title="4 Stars" (click)="addRating(4)">4 Stars</label>
-            <input type="radio" id="stern3" name="bewertung" value="3" *ngIf="rating === 3" checked><label for="stern3" title="3 Stars" (click)="addRating(3)">3 Stars</label>
-            <input type="radio" id="stern2" name="bewertung" value="2" *ngIf="rating === 2" checked><label for="stern2" title="2 Stars" (click)="addRating(2)">2 Stars</label>
-            <input type="radio" id="stern1" name="bewertung" value="1" *ngIf="rating === 1" checked><label for="stern1" title="1 Star" (click)="addRating(1)">1 Star</label>
-            <span id="Bewertung" title="Keine Bewertung">
-            </span>
-        </p> 
-    </div>
+    <section id="content-bottom">
+        <section id="instructions-left">
+            <div id="recipe">
+                <h3>Instructions</h3>
+                <p>{{ recipe }}</p>
+            </div>
+        </section>
+        <section id="ingredients-right">
+            <div id="ingredients" *ngIf="ingredients.length">
+                <h3>Ingredients</h3>
+                <section class="container">
+                    <section class="col">
+        
+                        <table class="table" *ngIf="ingredients.length">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+        
+                            <tbody>
+                                <tr *ngFor="let ingredient of ingredients">
+                                    <td>{{ ingredient.name }}</td>
+                                    <td>{{ ingredient.amount }}</td>
+                                    
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2">Total: {{ ingredients.length }}</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </section>
+                </section>
+            </div>
+        </section>
+       
+
+    </section>
 
     <div id="comments">
         <section class="container">
@@ -87,6 +101,5 @@
         </section>
         <p *ngIf=" username !== 'Guest'"><button (click)="addComment()">Add Comment</button></p>
     </div>
-
 
 </div>
