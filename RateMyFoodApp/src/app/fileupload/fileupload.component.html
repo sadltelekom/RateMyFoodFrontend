@@ -1,19 +1,22 @@
-<div id="fileupload">
-    <div>
-        <label>
-            <input type="file" (change)="selectFile($event)" accept="image/png"/>
-        </label>
+<div id="pagecontent">
+    <h3>Select yor Image to Upload here</h3>
+    <div id="fileupload">
+        <div>
+            <label>
+                <input type="file" (change)="selectFile($event)" accept="image/png" />
+            </label>
+        </div>
+        <div><p>
+            <button [disabled]="!selectedFiles" (click)="upload()">
+                Upload
+            </button></p>
+        </div>
     </div>
-    <div>
-        <button [disabled]="!selectedFiles" (click)="upload()">
-            Upload
-        </button>
+    <div *ngIf="currentFile">
+        <div role="progressbar" attr.aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100"
+            [ngStyle]="{ width: progress + '%' }">
+            {{ progress }}%
+        </div>
     </div>
+    <div *ngIf="message" role="alert">{{ message }}</div>
 </div>
-<div *ngIf="currentFile">
-    <div role="progressbar" attr.aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100"
-        [ngStyle]="{ width: progress + '%' }">
-        {{ progress }}%
-    </div>
-</div>
-<div *ngIf="message" role="alert">{{ message }}</div>

@@ -25,6 +25,7 @@
 }
 .table, .table th, .table td {
     border: 1px solid #000;
+    text-align: left;
 }
 .table th, .table td {
     padding: 10px;

@@ -16,7 +16,14 @@ export class CommentrestservService {
     let apiUrlNew = this.apiUrl+ id;
     return this.http.get<Dbcomment[]>(apiUrlNew);
   }
-  addComment(id: number) {
-
+  
+  addComment(rid: number, rcomment: string, ruserid: number) {
+    let apiUrlNew = "http://localhost:8080/post/comment/";
+    let commentObject={
+      recipeId: rid,
+      comment: rcomment,
+      userId: ruserid
+    };
+    return this.http.post(apiUrlNew,commentObject).subscribe();
   }
 }

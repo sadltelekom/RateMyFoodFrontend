@@ -5,6 +5,7 @@
     </div>
     <div id="recipe_picture">
         <img [src]="pictureurl[pictureindex]" [alt]="name" title="" width="400px" (click)="addPictureindex()">
+        <p *ngIf=" username !== 'Guest'"><button (click)="addPicture()">Add Picture</button></p>
     </div>
     <div id="ingredients" *ngIf="ingredients.length">
         <h3>Ingredients</h3>
