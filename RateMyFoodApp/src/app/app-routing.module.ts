@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CommentComponent } from './comment/comment.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
 import { HomeComponent } from './home/home.component';
 import { NotfoundComponent } from './notfound/notfound.component';
@@ -11,9 +12,10 @@ const routes: Routes = [
   { path: '' , component : HomeComponent },
   { path: 'recipes' , component : RecipelistComponent},
   { path: 'recipes/search/:search' , component : RecipelistComponent},
+  { path: 'comments/:id' , component : CommentComponent},
   { path: 'recipes/:id' , component : RecipesComponent},
   { path: 'login' , component : LoginComponent },
-  { path: 'upload' , component : FileuploadComponent},
+  { path: 'upload/:id' , component : FileuploadComponent},
   { path: "**", component : NotfoundComponent}
 ];
 

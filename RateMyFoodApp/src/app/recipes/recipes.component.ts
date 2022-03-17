@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryrestservService } from '../rest/categoryrestserv.service';
 import { CommentrestservService } from '../rest/commentrestserv.service';
 import { IngredientrestservService } from '../rest/ingredientrestserv.service';
@@ -44,7 +44,8 @@ export class RecipesComponent implements OnInit {
     private categoryrestservice: CategoryrestservService,
     private ingredientsrestservice: IngredientrestservService,
     private picturerestservice: PicturerestservService,
-    private activeRoute: ActivatedRoute,) {
+    private activeRoute: ActivatedRoute,
+    private router: Router) {
 
     if (this.activeRoute.snapshot.paramMap.get('id')) {
       this.id = Number(this.activeRoute.snapshot.paramMap.get('id'));
@@ -102,8 +103,10 @@ export class RecipesComponent implements OnInit {
   }
 
   addComment() {
-
+    this.router.navigate(['comments',this.id]);
   }
-
+  addPicture() {
+    this.router.navigate(['upload',this.id]);
+  }
 
 }
