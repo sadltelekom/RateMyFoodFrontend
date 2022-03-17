@@ -45,13 +45,13 @@
                 <p>{{ recipe }}</p>
             </div>
         </section>
-        <section id="ingredients-right">
+        <section id="instructions-right">
             <div id="ingredients" *ngIf="ingredients.length">
                 <h3>Ingredients</h3>
                 <section class="container">
                     <section class="col">
         
-                        <table class="table" *ngIf="ingredients.length">
+                        <table id="ingredientstable" class="table" *ngIf="ingredients.length">
                             <thead>
                                 <tr>
                                     <th>Name</th>
@@ -67,9 +67,7 @@
                                 </tr>
                             </tbody>
                             <tfoot>
-                                <tr>
-                                    <td colspan="2">Total: {{ ingredients.length }}</td>
-                                </tr>
+                                
                             </tfoot>
                         </table>
                     </section>
