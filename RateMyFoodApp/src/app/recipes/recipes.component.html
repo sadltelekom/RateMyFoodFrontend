@@ -82,16 +82,21 @@
         <section class="container">
             <section class="col">
 
-                <table class="table" *ngIf="comments.length">
+                <table class="table">
                     <thead>
                         <tr>
-                            <th>Comment</th>
+                            <th>Comments</th>
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody *ngIf="comments.length">
                         <tr *ngFor="let comment of comments">
                             <td>{{ comment.comment }}</td>
+                        </tr>
+                    </tbody>
+                    <tbody *ngIf="comments.length === 0">
+                        <tr>
+                            <td>Be the first to comment this recipe!</td>
                         </tr>
                     </tbody>
                     <tfoot>
