@@ -4,7 +4,10 @@
         <section id="picture-left">
             <div id="recipe_picture">
                 <img [src]="pictureurl[pictureindex]" [alt]="name" title="" id="image" (click)="addPictureindex()">
-                <p *ngIf=" username !== 'Guest'"><button (click)="addPicture()">Add Picture</button></p>
+                
+            </div>
+            <div>
+            <p id="addpicture" *ngIf=" username !== ''"><button (click)="addPicture()">Add Picture</button></p>
             </div>
         </section>
         <section id="recipe-intro">
@@ -42,14 +45,14 @@
                 <p>{{ recipe }}</p>
             </div>
         </section>
-        <section id="ingredients-right">
-            <div id="ingredients" *ngIf="ingredients.length">
+        <section id="instructions-right">
+            <div id="ingredients" >
                 <h3>Ingredients</h3>
                 <section class="container">
                     <section class="col">
         
-                        <table class="table" *ngIf="ingredients.length">
-                            <thead>
+                        <table id="ingredientstable" class="table" >
+                            <thead *ngIf="ingredients.length">
                                 <tr>
                                     <th>Name</th>
                                     <th>Amount</th>
@@ -63,9 +66,9 @@
                                     
                                 </tr>
                             </tbody>
-                            <tfoot>
+                            <tfoot *ngIf="ingredients.length === 0">
                                 <tr>
-                                    <td colspan="2">Total: {{ ingredients.length }}</td>
+                                    <td colspan="2">Please see instructions for more information!</td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -81,16 +84,21 @@
         <section class="container">
             <section class="col">
 
-                <table class="table" *ngIf="comments.length">
+                <table class="table">
                     <thead>
                         <tr>
-                            <th>Comment</th>
+                            <th>Comments</th>
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody *ngIf="comments.length">
                         <tr *ngFor="let comment of comments">
                             <td>{{ comment.comment }}</td>
+                        </tr>
+                    </tbody>
+                    <tbody *ngIf="comments.length === 0">
+                        <tr>
+                            <td>Be the first to comment this recipe!</td>
                         </tr>
                     </tbody>
                     <tfoot>
