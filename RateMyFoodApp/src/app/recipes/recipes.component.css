@@ -23,9 +23,10 @@ h2 {
   width: 80%;
   margin: auto;
   margin-top: 25px;
-  
+  size: 1.2em;
 }
 
+/* Picture and Overview */
 #content-top {
   display: flex;
   justify-content: space-evenly;
@@ -47,7 +48,6 @@ h2 {
   max-width: 100%;
   width: 400px;
   max-height: 290px;
-  
 }
 
 #addpicture {
@@ -62,7 +62,7 @@ h2 {
   align-items:flex-start;
 }
 
-
+/* Recipe */
 #content-bottom {
   width: 100%;
   display: flex;
@@ -83,6 +83,7 @@ h2 {
   width: 80%;
 }
 
+/* Ingredients */
 .col #ingredientstable {
   width: 100%; 
 }
@@ -101,20 +102,20 @@ h2 {
     background-color: white;
 }
 
-
+/* Comments */
 #commentsbox {
-  
-  width: 100%;
-  justify-content: flex-start;
-  
+  display: flex;
 }
 
+#commentcontainer {
+  display: flex; 
+}
 
-
-
-
-
-
+#commenttable {
+  border-collapse: collapse;
+  width: 550px;
+  margin: auto;
+}
 
 
 /* Sternebewertung */
