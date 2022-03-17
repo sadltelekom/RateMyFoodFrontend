@@ -99,6 +99,11 @@ h2 {
 }
 
 
+#ingredientstable tfoot {
+    background-color: white;
+}
+
+
 #comments {
   display: flex;
   justify-content: flex-start;

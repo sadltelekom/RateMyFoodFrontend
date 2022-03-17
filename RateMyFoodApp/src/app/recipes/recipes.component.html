@@ -46,13 +46,13 @@
             </div>
         </section>
         <section id="instructions-right">
-            <div id="ingredients" *ngIf="ingredients.length">
+            <div id="ingredients" >
                 <h3>Ingredients</h3>
                 <section class="container">
                     <section class="col">
         
-                        <table id="ingredientstable" class="table" *ngIf="ingredients.length">
-                            <thead>
+                        <table id="ingredientstable" class="table" >
+                            <thead *ngIf="ingredients.length">
                                 <tr>
                                     <th>Name</th>
                                     <th>Amount</th>
@@ -66,8 +66,10 @@
                                     
                                 </tr>
                             </tbody>
-                            <tfoot>
-                                
+                            <tfoot *ngIf="ingredients.length === 0">
+                                <tr>
+                                    <td colspan="2">Please see instructions for more information!</td>
+                                </tr>
                             </tfoot>
                         </table>
                     </section>
