@@ -4,7 +4,7 @@ button {
   border: 2px solid red;
   border-radius: 10px;
   padding: 4px;
-  margin: 8px;
+  /* margin: 8px; */
   cursor: pointer;
 }
 
@@ -33,16 +33,6 @@ h2 {
   height: 350px;
 }
 
-#recipe-intro {
-  width: 50%;
-  margin-left: 1%;
-  display: flex;
-  flex-direction: column;
-  align-items:flex-start;
-  
-
-}
-
 #picture-left {
   width: 50%;
   height: 100%;
@@ -51,8 +41,6 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
-  
 }
 
 #image {
@@ -62,11 +50,22 @@ h2 {
   
 }
 
+#addpicture {
+  margin-bottom: 0px;
+}
+
+#recipe-intro {
+  width: 50%;
+  margin-left: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+}
+
 
 #content-bottom {
   width: 100%;
   display: flex;
-  
   margin-bottom: 25px;
 }
 
@@ -98,16 +97,19 @@ h2 {
  cursor: pointer;
 }
 
-
 #ingredientstable tfoot {
     background-color: white;
 }
 
 
-#comments {
-  display: flex;
+#commentsbox {
+  
+  width: 100%;
   justify-content: flex-start;
+  
 }
+
+
 
 
 
