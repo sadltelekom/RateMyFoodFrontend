@@ -27,4 +27,6 @@ export class RecipelistComponent implements OnInit {
   openRecipe(id: number) {
     this.router.navigate(['recipes',id]);
   }
+
+  
 }

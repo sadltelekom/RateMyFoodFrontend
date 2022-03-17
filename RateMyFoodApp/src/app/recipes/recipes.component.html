@@ -7,7 +7,7 @@
                 
             </div>
             <div>
-            <p id="addpicture" *ngIf=" username !== ''"><button (click)="addPicture()">Add Picture</button></p>
+            <p id="addpicture" *ngIf=" username !== 'Guest'"><button (click)="addPicture()">Add Picture</button></p>
             </div>
         </section>
         <section id="recipe-intro">
@@ -109,7 +109,7 @@
                 </table>
             </section>
             <section id="addcommentcontainer">
-                <p *ngIf=" username !== ''"><button (click)="addComment()" id="addcommentbutton">Add Comment</button></p>
+                <p *ngIf=" username !== 'Guest'"><button (click)="addComment()" id="addcommentbutton">Add Comment</button></p>
             </section>
         </section>
         
