@@ -108,8 +108,12 @@
                     </tfoot>
                 </table>
             </section>
+            <section id="addcommentcontainer">
+                <p *ngIf=" username !== ''"><button (click)="addComment()" id="addcommentbutton">Add Comment</button></p>
+            </section>
         </section>
-        <p *ngIf=" username !== 'Guest'"><button (click)="addComment()">Add Comment</button></p>
+        
     </div>
+    
 
 </div>
