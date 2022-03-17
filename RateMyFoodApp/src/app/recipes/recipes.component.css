@@ -8,6 +8,67 @@ button {
   cursor: pointer;
 }
 
+h2 {
+  font-size: 45px;
+  line-height: 1.1em;
+  margin-bottom: -15px;
+  text-align: left;
+}
+
+#category {
+  margin-bottom: -25px;
+}
+
+#pagecontent {
+  margin-top: 25px;
+  
+  align-content: space-around;
+  
+}
+
+#content-top {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+#recipe-intro {
+  /* position: relative; */
+  /* text-align: left; */
+  width: 50%;
+  margin-left: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  
+
+}
+
+#picture-left {
+  width: 50%;
+  text-align: right;
+  margin-right: 1%;
+  
+}
+
+#image {
+  max-width: 100%;
+  width: 400px;
+}
+
+
+
+
+#content-bottom {
+  
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 25px;
+}
+
+
+
+
 #recipe {
   margin: auto;
   width: 65%;
@@ -15,16 +76,12 @@ button {
 
 /* Sternebewertung */
 #rating {
-
-  height: 50px;
-
+  /* margin-top: -35px; */
+  /* height: 50px; */
   display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
+  /* text-align: left; */
 }
+
 span#Bewertung label {
   line-height: 45px;
   cursor: Pointer;
