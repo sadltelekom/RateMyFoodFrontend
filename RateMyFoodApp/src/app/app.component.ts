@@ -21,4 +21,6 @@ export class AppComponent {
     (<HTMLInputElement>document.getElementById("search_bar")).value="";
   
   }
+  
+  dancingfeet() {}
 }
