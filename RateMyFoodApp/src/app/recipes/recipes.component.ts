@@ -93,7 +93,7 @@ export class RecipesComponent implements OnInit {
     if (this.pictureurl.length > this.pictureindex + 1) {
       this.pictureindex++;
     } else {
-      this.pictureindex--;
+      this.pictureindex = 0;
     }
   }
 
