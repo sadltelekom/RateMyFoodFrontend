@@ -1,10 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CategoryrestservService } from '../rest/categoryrestserv.service';
 import { IngredientrestservService } from '../rest/ingredientrestserv.service';
 import { Dbcategory } from '../shared/dbcategory';
 import { Dbingredient } from '../shared/dbingredients';
+import { Ingredient } from '../shared/ingredient';
 import { Recipedetails } from '../shared/recipedetails';
 
 @Component({
@@ -15,15 +16,15 @@ import { Recipedetails } from '../shared/recipedetails';
 export class AddrecipeComponent implements OnInit {
   categories: Dbcategory[] = [];
   ingredients: Dbingredient[] = [];
-  ingredientsused: Dbingredient[] = [];
+  ingredientsused: Ingredient[] = [];
   amount: string = "";
   ingredientname: string = "";
   ingredientid: number = 0;
 
   formRecipe: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$'), Validators.minLength(3)]),
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     time: new FormControl(1, Validators.required),
-    howto: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
+    howto: new FormControl('', Validators.required),
     category: new FormControl(''),
     ingredient: new FormControl(''),
     amountused: new FormControl(''),
@@ -45,14 +46,23 @@ export class AddrecipeComponent implements OnInit {
       howto: this.formRecipe.get('howto')?.value,
       category: this.formRecipe.get('category')?.value
     };
-    console.log(JSON.parse(JSON.stringify(newRecipe)));   
-    this.http.post("http://localhost:8080/post/recipes/",JSON.parse(JSON.stringify(newRecipe))).subscribe();
+    console.log(JSON.parse(JSON.stringify(newRecipe))); 
+    let headers  = new HttpHeaders({'Content-Type': 'application/json'});
+    
+    this.http.post("http://localhost:8080/post/recipes/",JSON.parse(JSON.stringify(newRecipe)),{headers}).subscribe();
 
   }
 
   addIngredientToList() {   
     let newIngredient: Dbingredient = this.formRecipe.get('ingredient')?.value;
     newIngredient.amount = this.formRecipe.get('amountused')?.value;
-    this.ingredientsused.push(newIngredient);
+    let newStringIngredient: Ingredient = {
+      id : newIngredient.id.toString(),
+      name: newIngredient.name,
+      amount: newIngredient.amount
+
+    }
+
+    this.ingredientsused.push(newStringIngredient);
   }
 }
