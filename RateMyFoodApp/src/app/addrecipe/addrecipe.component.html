@@ -31,9 +31,11 @@
                                 <option *ngFor="let ingredient of ingredients" [ngValue]="ingredient">{{ ingredient.name }}</option>
                         </select>
                         <input type="text" placeholder="Amount" formControlName="amountused">
-                        <button (click)="addIngredientToList()">+</button>
+                        <input type="button" (click)="addIngredientToList()" value="+"></p>
+                    
+                       
 
-                </p>
+                
 
                 <div id="ingredients" *ngIf="ingredients.length">
                         <h3>Ingredients</h3>
@@ -64,10 +66,10 @@
                             </section>
                         </section>
                     </div>
-
+                
                 <p><input type="submit" value="Add recipe" [disabled]="formRecipe.invalid"></p>
+            </form>
 
-
-        </form>
+        
 
 </div>
