@@ -1,7 +1,8 @@
 import { Dbingredient } from "./dbingredients";
+import { Ingredient } from "./ingredient";
 
 export type Recipedetails = {
-    ingredients: Dbingredient[],
+    ingredients: Ingredient[],
     name: string,
     time: number,
     howto: string,
