@@ -27,6 +27,25 @@ export class FileuploadComponent implements OnInit {
     }
   }
 
+
+  // Drag Drop Start
+  file:any;
+  getFile(event:any) {
+    this.file = event.target.files[0]
+    
+    console.log('file', this.file);
+
+  }
+
+  // uploadFile() {
+  //   let formData = new FormData();
+  //   formData.set("file", this.file)
+
+  // }
+  // Drag Drop End
+
+
+
   ngOnInit(): void {
     // this.fileInfos = this.uploadService.getFiles();
   }
@@ -35,30 +54,42 @@ export class FileuploadComponent implements OnInit {
     this.selectedFiles = event.target.files;
   }
 
-  upload(): void {
+  // upload(): void {
+  uploadFile() {
+    let formData = new FormData();
+    formData.set("file", this.file)
     this.progress = 0;
-    if (this.selectedFiles) {
-      const file: File | null = this.selectedFiles.item(0);
-      if (file) {
-        this.currentFile = file;
-        this.uploadService.upload(this.currentFile,this.id).subscribe({
+    // if (this.selectedFiles) {
+    //   const file: File | null = this.selectedFiles.item(0);
+      if (this.file) {
+        // this.currentFile = this.file;
+        this.uploadService.upload(this.file,this.id).subscribe({
           next: (event: any) => {
+
+            console.log("upload: ", this.uploadService);
+
             if (event.type === HttpEventType.UploadProgress) {
+
+              console.log("any progress?");
+
               this.progress = Math.round(100 * event.loaded / event.total);
             } 
           },
           error: (err: any) => {
             console.log(err);
             this.progress = 0;
+            
             if (err.error && err.error.message) {
+              console.log("PUnkt3");
               this.message = err.error.message;
             } 
-            this.currentFile = undefined;
+            // this.currentFile = undefined;
           }
         });
       }
-      this.selectedFiles = undefined;
-    }
+      // this.selectedFiles = undefined;
+    // }
+    console.log("PUnkt5");
     this.router.navigate(['recipes', this.id]);
   }
 

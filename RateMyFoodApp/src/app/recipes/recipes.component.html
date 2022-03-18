@@ -7,7 +7,7 @@
                 
             </div>
             <div>
-            <p id="addpicture" *ngIf=" username !== 'Guest'"><button (click)="addPicture()">Add Picture</button></p>
+            <p id="addpicture" *ngIf="username !== 'Guest'"><button (click)="addPicture()">Add Picture</button></p>
             </div>
         </section>
         <section id="recipe-intro">
@@ -95,10 +95,16 @@
                         <tr *ngFor="let comment of comments">
                             <td>{{ comment.comment }}</td>
                         </tr>
+                        <tr *ngIf="username === 'Guest'">
+                            <td>You have to login to comment!</td>
+                        </tr>
                     </tbody>
                     <tbody *ngIf="comments.length === 0">
-                        <tr>
+                        <tr *ngIf="username !== 'Guest'">
                             <td>Be the first to comment this recipe!</td>
+                        </tr>
+                        <tr *ngIf="username === 'Guest'">
+                            <td>You have to login to comment!</td>
                         </tr>
                     </tbody>
                     <tfoot>

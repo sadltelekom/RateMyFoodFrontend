@@ -1,0 +1,13 @@
+.file-container {
+    width: 400px;
+    border: 4px dotted black;
+
+    
+}
+
+.file {
+    opacity: 0;
+    padding: 5rem;
+    width: auto;
+    height: 5rem;
+}
