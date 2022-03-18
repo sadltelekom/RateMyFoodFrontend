@@ -1,6 +1,6 @@
 <div id="pagecontent">
     <h3>Select yor Image to Upload here</h3>
-    <div id="fileupload">
+    <!-- <div id="fileupload">
         <div>
             <label>
                 <input type="file" (change)="selectFile($event)" accept="image/png" />
@@ -18,5 +18,19 @@
             {{ progress }}%
         </div>
     </div>
-    <div *ngIf="message" role="alert">{{ message }}</div>
+    <div *ngIf="message" role="alert">{{ message }}</div> -->
+
+    <!-- Drag'n'Drop -->
+    <div class="file-container" *ngIf="!file">
+
+        <input type="file" (change)="getFile($event)" class="file">
+
+    </div>
+
+    <div *ngIf="file">
+        File name: {{file.name}} <br />
+        <button (click)="file = undefined">clear file</button>
+        <br />
+    </div> <br />
+    <button (click)="uploadFile()">upload file</button>
 </div>
