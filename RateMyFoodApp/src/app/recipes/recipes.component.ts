@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { CategoryrestservService } from '../rest/categoryrestserv.service';
 import { CommentrestservService } from '../rest/commentrestserv.service';
 import { IngredientrestservService } from '../rest/ingredientrestserv.service';
@@ -80,6 +81,22 @@ export class RecipesComponent implements OnInit {
       }
     });
    
+    this.router.events
+  .pipe(
+    filter(value => value instanceof NavigationEnd),
+  )
+  .subscribe(event => {
+    this.picturerestservice.getPicturesByRecipeId(this.id).subscribe(pictures => {
+      for (let picture of pictures) {
+        this.pictureurl.push("http://localhost:8080/recipes/images/" + picture.link);
+      }
+      if(this.pictureurl.length === 0) {
+        this.pictureurl.push("../../assets/images/no-image.png");
+      }
+    });
+    this.ratingrestservice.getAverageRatingforRecipe(this.id).subscribe(avgrating => this.rating = avgrating.average);
+    this.commentrestservice.getCommentsforRecipe(this.id).subscribe(comment => this.comments = comment);
+});
 
   }
 
