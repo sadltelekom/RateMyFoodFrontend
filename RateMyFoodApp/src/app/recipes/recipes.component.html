@@ -20,7 +20,7 @@
             </div>
             <div id="rating">
                 <!-- <h3>Rating :</h3> {{ rating }} -->
-                <p class="sternebewertung" *ngIf="rating">
+                <p class="sternebewertung">
                    <input type="radio" id="stern5" name="bewertung" value="5" *ngIf="rating === 5" checked><label for="stern5" title="5 Stars" (click)="addRating(5)">5 Stars </label>
                    <input type="radio" id="stern4" name="bewertung" value="4" *ngIf="rating === 4" checked><label for="stern4" title="4 Stars" (click)="addRating(4)">4 Stars</label>
                    <input type="radio" id="stern3" name="bewertung" value="3" *ngIf="rating === 3" checked><label for="stern3" title="3 Stars" (click)="addRating(3)">3 Stars</label>
