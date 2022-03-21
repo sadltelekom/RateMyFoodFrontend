@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CategoryrestservService } from '../rest/categoryrestserv.service';
 import { IngredientrestservService } from '../rest/ingredientrestserv.service';
 import { Dbcategory } from '../shared/dbcategory';
@@ -30,7 +31,7 @@ export class AddrecipeComponent implements OnInit {
     amountused: new FormControl(''),
   });
 
-  constructor(private categoryrestserv: CategoryrestservService, private ingredientrestserv: IngredientrestservService, private http: HttpClient) {
+  constructor(private categoryrestserv: CategoryrestservService, private ingredientrestserv: IngredientrestservService, private http: HttpClient,private router: Router) {
     this.categoryrestserv.getAllCategorys().subscribe(category => this.categories = category);
     this.ingredientrestserv.getAllIngredients().subscribe(ingredient => this.ingredients = ingredient);
   }
@@ -50,6 +51,7 @@ export class AddrecipeComponent implements OnInit {
     let headers  = new HttpHeaders({'Content-Type': 'application/json'});
     
     this.http.post("http://localhost:8080/post/recipes/",JSON.parse(JSON.stringify(newRecipe)),{headers}).subscribe();
+    this.router.navigate(['recipes']);
 
   }
 
