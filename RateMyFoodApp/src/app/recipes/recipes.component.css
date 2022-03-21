@@ -1,3 +1,26 @@
+ * {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+ }
+
+ a {
+  color: #03658c;
+  text-decoration: none;
+ }
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  font-family: 'Roboto', Arial, Helvetica, Sans-serif, Verdana;
+  background: #dee1e3;
+}
+
+
 button {
   color: black;
   background-color: white;
@@ -109,33 +132,6 @@ h2 {
     background-color: white;
 }
 
-
-
-/* Comments */
-#commentsbox {
-  /* background-color: yellow; */
-  align-items: flex-start;
-  margin-top: 100px;
-}
-
-#commentcontainer {
-  display: flex; 
-  width: 70%;
-  /* border: 5px solid magenta; */
-  flex-direction: column;
-}
-
-#commenttable {
-  border-collapse: collapse;
-  width: 100%;
-  margin: auto;
-}
-
-#addcommentcontainer {
-  /* background-color: blue; */
-}
-
-
 /* Sternebewertung */
 #rating {
   /* margin-top: -35px; */
@@ -201,39 +197,8 @@ span#Bewertung label {
  }
 
 
- /* COOOOOMMMENTSBOX */
+ /* comment box */
 
- /**
- * Oscuro: #283035
- * Azul: #03658c
- * Detalle: #c7cacb
- * Fondo: #dee1e3
- ----------------------------------*/
- * {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
- }
-
- a {
-  color: #03658c;
-  text-decoration: none;
- }
-
-ul {
-  list-style-type: none;
-}
-
-body {
-  font-family: 'Roboto', Arial, Helvetica, Sans-serif, Verdana;
-  background: #dee1e3;
-}
-
-/** ====================
- * Lista de Comentarios
- =======================*/
 .comments-container {
   margin: 60px auto 15px;
   width: 768px;
@@ -255,9 +220,6 @@ body {
   position: relative;
 }
 
-/**
- * Lineas / Detalles
- -----------------------*/
 .comments-list:before {
   content: '';
   width: 2px;
@@ -313,9 +275,7 @@ body {
   clear: both;
   margin-top: 15px;
 }
-/**
- * Avatar
- ---------------------------*/
+
 .comments-list .comment-avatar {
   width: 65px;
   height: 65px;
@@ -349,9 +309,7 @@ body {
   display: block;
   clear: both;
 }
-/**
- * Caja del Comentario
- ---------------------------*/
+
 .comments-list .comment-box {
   width: 680px;
   float: right;
@@ -453,11 +411,6 @@ body {
   border-radius: 3px;
 }
 
-
-
-/** =====================
- * Responsive
- ========================*/
 @media only screen and (max-width: 766px) {
   .comments-container {
     width: 480px;
