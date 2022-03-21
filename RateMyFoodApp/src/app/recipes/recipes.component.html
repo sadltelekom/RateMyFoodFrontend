@@ -30,8 +30,6 @@
                    </span>
                </p> 
            </div>
-           
-            
            <div id="time">
             <p><strong>Cooking time:</strong> {{ time }} minutes</p>
             </div>
@@ -76,50 +74,61 @@
                 </section>
             </div>
         </section>
-       
-
     </section>
-
-    <div id="commentsbox">
-        <section class="container" id="commentcontainer">
-            <section class="col" id="commentcol">
-
-                <table class="table" id="commenttable">
-                    <thead>
-                        <tr>
-                            <th>Comments</th>
-                        </tr>
-                    </thead>
-
-                    <tbody *ngIf="comments.length">
-                        <tr *ngFor="let comment of comments">
-                            <td>{{ comment.comment }}</td>
-                        </tr>
-                        <tr *ngIf="username === 'Guest'">
-                            <td>You have to login to comment!</td>
-                        </tr>
-                    </tbody>
-                    <tbody *ngIf="comments.length === 0">
-                        <tr *ngIf="username !== 'Guest'">
-                            <td>Be the first to comment this recipe!</td>
-                        </tr>
-                        <tr *ngIf="username === 'Guest'">
-                            <td>You have to login to comment!</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td>Total: {{ comments.length }}</td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </section>
-            <section id="addcommentcontainer">
-                <p *ngIf=" username !== 'Guest'"><button (click)="addComment()" id="addcommentbutton">Add Comment</button></p>
-            </section>
-        </section>
-        
-    </div>
     
+  <div class="comments-container">
+    <h1>Comments</h1>
 
+    <ul id="comments-list" class="comments-list" *ngFor="let comment of comments">
+      <li>
+        <div class="comment-main-level" >
+          <div class="comment-avatar"><img src="../assets/images/favicon.png" alt=""></div>
+          <div class="comment-box">
+            <div class="comment-head">
+              <h6 class="comment-name by-author"><a href="**">Guest</a></h6>
+              <i class="fa fa-reply"></i>
+              <i class="fa fa-heart"></i>
+            </div>
+            <div class="comment-content">
+                {{ comment.comment }}
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <!-- No Comments yet -->
+
+    <ul id="comments-list" class="comments-list" *ngIf="username !== 'Guest' && comments.length === 0">
+        <li>
+          <div class="comment-main-level" >
+            <div class="comment-avatar"><img src="../assets/images/favicon.png" alt=""></div>
+            <div class="comment-box">
+              <div class="comment-head">
+                <h6 class="comment-name no login" ><a>Be the first to comment this recipe.</a></h6>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    <!-- Comments Guest Login -->
+
+    <ul id="comments-list" class="comments-list" *ngIf="username === 'Guest'">
+        <li>
+          <div class="comment-main-level" >
+            <div class="comment-avatar"><img src="../assets/images/favicon.png" alt=""></div>
+            <div class="comment-box">
+              <div class="comment-head">
+                <h6 class="comment-name no login"><a href="login">Please login to comment.</a></h6>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    <section id="addcommentcontainer">
+        <p *ngIf=" username !== 'Guest'"><button (click)="addComment()" id="addcommentbutton">Add Comment</button></p>
+    </section>
+  </div>
 </div>
