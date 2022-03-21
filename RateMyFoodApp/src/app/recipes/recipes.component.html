@@ -83,7 +83,7 @@
 
     <!-- ###### COMMENTS ########## -->
 
-    <div id="commentsbox">
+    <!-- <div id="commentsbox">
         <section class="container" id="commentcontainer">
             <section class="col" id="commentcol">
 
@@ -122,7 +122,7 @@
             </section>
         </section>
         
-    </div>
+    </div> -->
     
     <!-- ###### NEEEEEEEEW COOOOMMENTSSSSS ##########
 
@@ -139,12 +139,11 @@
       <li>
         <div class="comment-main-level" >
           <!-- Avatar -->
-          <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
+          <div class="comment-avatar"><img src="../assets/images/favicon.png" alt=""></div>
           <!-- Contenedor del Comentario -->
           <div class="comment-box">
             <div class="comment-head">
-              <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Agustin Ortiz</a></h6>
-              <span>hace 20 minutos</span>
+              <h6 class="comment-name by-author"><a href="**">Guest</a></h6>
               <i class="fa fa-reply"></i>
               <i class="fa fa-heart"></i>
             </div>
@@ -153,63 +152,52 @@
             </div>
           </div>
         </div>
-        <!-- Respuestas de los comentarios -->
-        <ul class="comments-list reply-list">
-          <li>
-            <!-- Avatar -->
-            <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg" alt=""></div>
-            <!-- Contenedor del Comentario -->
-            <div class="comment-box">
-              <div class="comment-head">
-                <h6 class="comment-name"><a href="http://creaticode.com/blog">Lorena Rojero</a></h6>
-                <span>hace 10 minutos</span>
-                <i class="fa fa-reply"></i>
-                <i class="fa fa-heart"></i>
-              </div>
-              <div class="comment-content">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <!-- Avatar -->
-            <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
-            <!-- Contenedor del Comentario -->
-            <div class="comment-box">
-              <div class="comment-head">
-                <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Agustin Ortiz</a></h6>
-                <span>hace 10 minutos</span>
-                <i class="fa fa-reply"></i>
-                <i class="fa fa-heart"></i>
-              </div>
-              <div class="comment-content">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-              </div>
-            </div>
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        <div class="comment-main-level">
-          <!-- Avatar -->
-          <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg" alt=""></div>
-          <!-- Contenedor del Comentario -->
-          <div class="comment-box">
-            <div class="comment-head">
-              <h6 class="comment-name"><a href="http://creaticode.com/blog">Lorena Rojero</a></h6>
-              <span>hace 10 minutos</span>
-              <i class="fa fa-reply"></i>
-              <i class="fa fa-heart"></i>
-            </div>
-            <div class="comment-content">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-            </div>
-          </div>
-        </div>
       </li>
     </ul>
+
+    <!-- No Comments yet -->
+
+    <ul id="comments-list" class="comments-list" *ngIf="username !== 'Guest' && comments.length === 0">
+        <li>
+          <div class="comment-main-level" >
+            <!-- Avatar -->
+            <div class="comment-avatar"><img src="../assets/images/favicon.png" alt=""></div>
+            <!-- Contenedor del Comentario -->
+            <div class="comment-box">
+              <div class="comment-head">
+                <h6 class="comment-name no login" ><a>Be the first to comment this recipe.</a></h6>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    <!-- Comments Guest Login -->
+
+    <ul id="comments-list" class="comments-list" *ngIf="username === 'Guest'">
+        <li>
+          <div class="comment-main-level" >
+            <!-- Avatar -->
+            <div class="comment-avatar"><img src="../assets/images/favicon.png" alt=""></div>
+            <!-- Contenedor del Comentario -->
+            <div class="comment-box">
+              <div class="comment-head">
+                <h6 class="comment-name no login"><a href="login">Please login to comment.</a></h6>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+
+
+
+
+    <section id="addcommentcontainer">
+        <p *ngIf=" username !== 'Guest'"><button (click)="addComment()" id="addcommentbutton">Add Comment</button></p>
+    </section>
+
+    
   </div>
 
-</div> -->
+</div>
