@@ -33,6 +33,7 @@ export class RecipesComponent implements OnInit {
   category!: Dbcategory;
   categoryname: string = "";
   rating: number = 0;
+  numberOfRatings = 0;
   comments: Dbcomment[] = [];
   username: string = "";
   ingredients: Dbingredient[] = [];
@@ -57,6 +58,7 @@ export class RecipesComponent implements OnInit {
     this.commentrestservice.getCommentsforRecipe(this.id).subscribe(comment => this.comments = comment);
     this.username = this.loginservice.getUsername();
     this.ratingrestservice.getAverageRatingforRecipe(this.id).subscribe(avgrating => this.rating = avgrating.average);
+    this.ratingrestservice.getNumberOfRatings(this.id).subscribe(number => this.numberOfRatings = number.length);
     this.reciperestservive.getRecipeById(this.id).subscribe(recipe => {
 
       this.recipeObject = recipe;
@@ -76,35 +78,35 @@ export class RecipesComponent implements OnInit {
       for (let picture of pictures) {
         this.pictureurl.push("http://localhost:8080/recipes/images/" + picture.link);
       }
-      if(this.pictureurl.length === 0) {
+      if (this.pictureurl.length === 0) {
         this.pictureurl.push("../../assets/images/no-image.png");
       }
     });
-   
-    this.router.events
-  .pipe(
-    filter(value => value instanceof NavigationEnd),
-  )
-  .subscribe(event => {
-    this.picturerestservice.getPicturesByRecipeId(this.id).subscribe(pictures => {
-      for (let picture of pictures) {
-        this.pictureurl.push("http://localhost:8080/recipes/images/" + picture.link);
-      }
-      if(this.pictureurl.length === 0) {
-        this.pictureurl.push("../../assets/images/no-image.png");
-      }
-    });
-    this.ratingrestservice.getAverageRatingforRecipe(this.id).subscribe(avgrating => this.rating = avgrating.average);
-    this.commentrestservice.getCommentsforRecipe(this.id).subscribe(comment => this.comments = comment);
-});
 
+    this.router.events
+      .pipe(
+        filter(value => value instanceof NavigationEnd),
+      )
+      .subscribe(event => {
+        this.picturerestservice.getPicturesByRecipeId(this.id).subscribe(pictures => {
+          for (let picture of pictures) {
+            this.pictureurl.push("http://localhost:8080/recipes/images/" + picture.link);
+          }
+          if (this.pictureurl.length === 0) {
+            this.pictureurl.push("../../assets/images/no-image.png");
+          }
+        });
+        this.ratingrestservice.getAverageRatingforRecipe(this.id).subscribe(avgrating => this.rating = avgrating.average);
+        this.commentrestservice.getCommentsforRecipe(this.id).subscribe(comment => this.comments = comment);
+      });
+    this.ratingrestservice.getNumberOfRatings(this.id).subscribe(number => this.numberOfRatings = number.length);
   }
 
   ngOnInit(): void {
   }
 
   addPictureindex() {
-    if(this.pictureurl.length === 1 || this.pictureurl.length === 0 ) {
+    if (this.pictureurl.length === 1 || this.pictureurl.length === 0) {
       return;
     }
     if (this.pictureurl.length > this.pictureindex + 1) {
@@ -114,16 +116,22 @@ export class RecipesComponent implements OnInit {
     }
   }
 
-  addRating(rating:number) {
-    this.ratingrestservice.giveRating(this.id,rating,1);
+  addRating(rating: number) {
+    this.ratingrestservice.giveRating(this.id, rating, 1);
     this.ratingrestservice.getAverageRatingforRecipe(this.id).subscribe(avgrating => this.rating = avgrating.average);
+    this.router.navigate(['recipes', this.id]).then(
+      () => {
+        this.ratingrestservice.getAverageRatingforRecipe(this.id).subscribe(avgrating => this.rating = avgrating.average);
+        this.ratingrestservice.getNumberOfRatings(this.id).subscribe(number => this.numberOfRatings = number.length);
+      }
+    );
   }
 
   addComment() {
-    this.router.navigate(['comments',this.id]);
+    this.router.navigate(['comments', this.id]);
   }
   addPicture() {
-    this.router.navigate(['upload',this.id]);
+    this.router.navigate(['upload', this.id]);
   }
 
 }
