@@ -8,8 +8,10 @@
                 <li><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact:true }">Home</a></li>
                 <li><a routerLink="recipes" routerLinkActive="active">Recipes</a></li>
                 <li><a routerLink="login" routerLinkActive="active">Login</a></li>
-                <li *ngIf="username !== 'Guest'" ><a  routerLink="addrecipe" routerLinkActive="active">Add New Recipe</a></li>
-                <li><input type="text" id="search_bar" placeholder="Search in recipes"  #searchterm><button (click)="searchRecipes(searchterm.value)">🔍</button></li>
+                <li *ngIf="username !== 'Guest'"><a routerLink="addrecipe" routerLinkActive="active">Add New Recipe</a>
+                </li>
+                <li><input type="text" id="search_bar" placeholder="Search in recipes" #searchterm><button
+                        (click)="searchRecipes(searchterm.value)">🔍</button></li>
 
             </ul>
         </nav>
@@ -22,8 +24,19 @@
 </main>
 
 <footer>
-    <p>&copy;</p>
-    <p><a href="../assets/videos/Hobbitfeetdance.mp4"><img src="../assets/images/zeegermans2.png" alt="Zee germans logo" title="Zee germans logo"></a> </p>
+    <div id="footer">
+        <p>&copy;</p>
+        <p><img src="../assets/images/zeegermans2.png" alt="Zee germans logo" title="Zee germans logo"
+                (click)="dancingfeet()"></p>
 
+        <div *ngIf="condition" id="easteregg">
+          
+            
+                    <video autoplay (ended)='dancingfeet()'>
+                    <source src="../assets/videos/Hobbitfeetdance.mp4" type="video/mp4">
+                </video>
+            
+        </div>
+    </div>
     <!-- <p><button img src="../assets/images/zeegermans2.png" alt="Zee germans logo" title="Zee germans logo" (click)="dancingfeet()" id="easteregg"></button></p> -->
 </footer>

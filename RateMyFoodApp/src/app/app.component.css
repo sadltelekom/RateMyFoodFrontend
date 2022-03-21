@@ -60,3 +60,25 @@
     background-color: green;
 }
 
+
+
+#footer {
+    display: flexbox;
+}
+
+#easteregg {
+    display: flex;
+    margin-top: -800px;
+    border-radius: 10px;
+    border: solid 2px green;
+}
+
+#easteregg h2{
+    display: inline;
+    justify-self: center;
+
+}
+#easteregg video{
+    display: inline-block;
+    width: 100%;
+}
