@@ -57,6 +57,11 @@
 }
 .top_menu a:hover, .top_menu .active {
     color: white;
-    background-color: green;
+    background-color: green ;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-right: 1px solid white;
+    
+
 }
 

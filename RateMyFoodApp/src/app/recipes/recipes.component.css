@@ -47,12 +47,14 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 10px;
 }
 
 #image {
   max-width: 100%;
   width: 400px;
   max-height: 290px;
+  border-radius: 10px;
 }
 
 #addpicture {
@@ -92,7 +94,8 @@ h2 {
 
 /* Ingredients */
 .col #ingredientstable {
-  width: 100%; 
+  width: 100%;
+  border-radius: 10px; 
 }
 
 #ingredientstable tbody tr:nth-child(even) {
@@ -100,7 +103,7 @@ h2 {
 } 
 
 #ingredientstable tbody tr:hover {
- background-color: #666;
+ background-color: rgb(46, 126, 76);
  color: white;
  cursor: pointer;
 }

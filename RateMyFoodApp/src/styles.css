@@ -6,11 +6,13 @@ body {
     max-width: 1100px;
     line-height: 150%;
     
+    
 }
 
 
 #container {
     display: flex;
+    border-radius: 10px;
 }
 
 .container {
@@ -22,6 +24,7 @@ body {
     text-align: center;
     size: 1.2em;
     
+    
 }
 
 .col {
@@ -32,18 +35,20 @@ body {
     border-collapse: collapse;
     width: 450px;
     margin: auto;
+    border-radius: 10px;
 }
 .table, .table th, .table td {
     border: 1px solid #000;
     text-align: left;
+    
 }
 .table th, .table td {
     padding: 10px;
     
 }
 .table td button {
-    background-color: rgba(0,0,0,0);
-    color: rgba(0,0,0,1);
+    background-color: green;
+    color: greenyellow;
     border-style: none;
     font-size: 1.5em;
     font-weight: 600;
@@ -53,6 +58,7 @@ body {
 .table > caption {
     caption-side: bottom;
     margin-top: 20px;
+    border-radius: 10px;
 }
 .table th {
     background-color: black;
@@ -67,7 +73,7 @@ body {
     cursor: pointer;
 }
 .table tbody tr:nth-child(even) {
-    background-color: #999;
+    background-color: green;
 } 
 
 header p{
