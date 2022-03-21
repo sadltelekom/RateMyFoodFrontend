@@ -1,7 +1,7 @@
 button {
   color: black;
   background-color: white;
-  border: 2px solid red;
+  border: 2px solid green;
   border-radius: 10px;
   padding: 4px;
   /* margin: 8px; */
@@ -10,7 +10,7 @@ button {
 
 button:hover {
   background-color: white;
-  border: 2px solid darkred;
+  border: 2px solid greenyellow;
 }
 
 h2 {
@@ -57,6 +57,7 @@ h2 {
 
 #addpicture {
   margin-bottom: 0px;
+  width: 400px;
 }
 
 #recipe-intro {
