@@ -1,0 +1,14 @@
+.col {
+    margin-top: 15px;
+}
+
+.table
+
+.table tbody tr:hover {
+    background-color: #666;
+    color: white;
+    cursor: pointer;
+}
+.table tbody tr:nth-child(even) {
+    background-color: #93f5b0;
+} 
