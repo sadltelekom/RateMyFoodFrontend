@@ -5,7 +5,7 @@ body {
     background: #424242;
 }
 form {
-    width: 320px;
+    width: 800px;
     margin: 45px auto;
 }
 form h1 {
@@ -31,8 +31,9 @@ form .emoji {
     font-size: 1.2em;
 }
 .group {
+    width: 320px;
     position: relative;
-    margin: 45px 0;
+    margin: 45px auto;
 }
 textarea {
     resize: none;
@@ -128,12 +129,10 @@ label {
     text-align: center;
     margin: 50px 0;
 }
-
 .table th {
     background-color: #e3fcea;
     color: black;
 }
-
 .table tfoot {
     background-color: white;
 }
@@ -145,22 +144,7 @@ label {
 .table tbody tr:nth-child(even) {
     background-color: white;
 } 
-
 #ingredients {
     width: 600px;
-    display: flex-wrap;
-    /* justify-content: center; */
-    
-    
-    border: 2px solid magenta;
-}
-
-.container{
-    
-    border: 2px solid yellow;
-}
-
-.table{
-    
-    border: 2px solid magenta;
+    margin: 0 auto;
 }
