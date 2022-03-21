@@ -8,25 +8,33 @@ import { User } from '../shared/user';
   providedIn: 'root'
 })
 export class LoginserviceService {
-  private user: User = ({ username: "Guest", password: "VerySecurePassword" });
+  private user!: User;
   
   private dbusers: Dbuser[] = [];
     
   
   constructor(private loginrest : LoginrestservService) {
     this.loginrest.getUsers().subscribe(dbuser => this.dbusers = dbuser);
+      if(!sessionStorage.getItem("username")) {
+        this.user = ({ username: "Guest", password: "VerySecurePassword" });
+      }
+      if(sessionStorage.getItem("username")) {
+        this.user = ({ username: sessionStorage.getItem("username")!, password: sessionStorage.getItem("password")!});
+      }
   }
 
   getUsername(): string {
     return this.user.username;
   }
   getPassword(): string {
-    return this.user.password;
+    return this.user.password! ;
   }
   setUser(user: User) {
     for ( let dbuser of this.dbusers) {
       if( dbuser.name === user.username && dbuser.password === user.password) {
         this.user = user;
+        sessionStorage.setItem('username', user.username);
+        sessionStorage.setItem('password', user.password);
       }
       else {
         console.log(dbuser.name);

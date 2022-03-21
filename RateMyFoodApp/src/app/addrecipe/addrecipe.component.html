@@ -1,41 +1,76 @@
 <div id="pagecontent">
+
         <form [formGroup]="formRecipe" (ngSubmit)="insertRecipe()">
-                <p><label for="name">Name:</label> <input type="text" id="name" formControlName="name"
-                                placeholder="Give name of your recipe"></p>
+            
+            <div >
+                <select formControlName="category">
+                        <option value="">--Select a category--</option>
+                        <option *ngFor="let category of categories" [ngValue]="category">{{ category }}</option>
+                </select>
+            </div>
+
+            <div class="group">
+                <input type="text" required="required" formControlName="name" /><span class="highlight"></span><span class="bar"></span><label>Title of your recipe</label>
+                <p *ngIf="formRecipe.get('name')?.touched && formRecipe.get('name')?.hasError('required')"><small>You
+                    must provide
+                    a title.</small></p>
+                    <p *ngIf="formRecipe.get('name')?.touched && formRecipe.get('name')?.hasError('minlength')"><small>You
+                    must
+                    provide at least 3 characters.</small></p>
+                    <p *ngIf="formRecipe.get('name')?.touched && formRecipe.get('name')?.hasError('pattern')"><small>Only
+                    use lower
+                    and Uppercase Letters and Space</small></p>
+            </div>  
+            
+            <div class="group">
+                <input type="number" required="required" formControlName="time" /><span class="highlight"></span><span class="bar"></span><label>Needed time in minutes</label>
+            </div>
+
+            <div class="group">
+                <textarea type="textarea" rows="5" required="required" formControlName="howto"></textarea><span class="highlight"></span><span class="bar"></span><label>Cooking directions</label>
+            </div>
+
+            <div class="group">
+                <select formControlName="ingredient">
+                    <option value="">--Select a Ingredient--</option>
+                    <option *ngFor="let ingredient of ingredients" [ngValue]="ingredient">{{ ingredient.name }}</option>
+                </select>
+            </div>
+            <div class="group">
+                <input type="text" required="required" formControlName="amountused" /><span class="highlight"></span><span class="bar"></span><label>Amount</label>
+            </div>
+            <div class="btn-box">
+                <button class="btn btn-submit" type="button" (click)="addIngredientToList()">+</button>
+            </div>
+
+
+
+
+
+
+            <!-- <input type="button" (click)="addIngredientToList()" value="+"> -->
+
+            
+            <!-- <p><label for="name">Name:</label> <input type="text" id="name" formControlName="name"
+                                placeholder="Title of your recipe"></p>
                 <p *ngIf="formRecipe.get('name')?.touched && formRecipe.get('name')?.hasError('required')"><small>You
                                 must provide
-                                a name.</small></p>
+                                a title.</small></p>
                 <p *ngIf="formRecipe.get('name')?.touched && formRecipe.get('name')?.hasError('minlength')"><small>You
                                 must
                                 provide at least 3 characters.</small></p>
                 <p *ngIf="formRecipe.get('name')?.touched && formRecipe.get('name')?.hasError('pattern')"><small>Only
                                 use lower
-                                and Uppercase Letters and Space</small></p>
+                                and Uppercase Letters and Space</small></p> -->
 
-                <p><label for="time">Cooking time:</label> <input type="number" id="time" formControlName="time"
-                                placeholder="Give cooking time of your recipe in minutes"></p>
-                <p><label for="howto">How to make:</label> <textarea rows="8" cols="80" id="howto"
+                <!-- <p><label for="time">Cooking time:</label> <input type="number" id="time" formControlName="time"
+                                placeholder="Needed time in minutes" ></p> -->
+
+                <!-- <p><label for="howto">How to make:</label> <textarea rows="8" cols="80" id="howto"
                                 formControlName="howto"
-                                placeholder="Give easy to understand instructions on how to remake your recipe"> </textarea>
-                </p>
-                <p><label for="category">Choose category:</label>
-                        <select formControlName="category">
-                                <option value="">--Select a category--</option>
-                                <option *ngFor="let category of categories" [ngValue]="category">{{ category }}</option>
-                        </select>
-
-                </p>
-                <p>
-                        <select formControlName="ingredient">
-                                <option value="">--Select a Ingredient--</option>
-                                <option *ngFor="let ingredient of ingredients" [ngValue]="ingredient">{{ ingredient.name }}</option>
-                        </select>
-                        <input type="text" placeholder="Amount" formControlName="amountused">
-                        <input type="button" (click)="addIngredientToList()" value="+"></p>
-                    
-                       
-
-                
+                                placeholder="Instructions
+                                Keep in mind to make them easy to follow."> </textarea>
+                </p> -->
 
                 <div id="ingredients" *ngIf="ingredients.length">
                         <h3>Ingredients</h3>
@@ -66,10 +101,33 @@
                             </section>
                         </section>
                     </div>
+
+                <div class="btn-box">
+                    <button class="btn btn-submit" type="submit" [disabled]="formRecipe.invalid">Add recipe</button>
+                    <button class="btn btn-cancel" type="button">cancel</button>
+                </div>
                 
-                <p><input type="submit" value="Add recipe" [disabled]="formRecipe.invalid"></p>
-            </form>
+                
 
-        
 
-</div>
+                        
+                        
+
+                        <!-- <div class="group"><input type="text" required="required" /><span class="highlight"></span><span class="bar"></span><label>Name</label></div> -->
+
+                                            
+                        <!-- <div class="group"><input type="number" required="required" /><span class="highlight"></span><span class="bar"></span><label>Number</label></div> -->
+
+                        <!-- <div class="group"><textarea type="textarea" rows="5" required="required"></textarea><span class="highlight"></span><span class="bar"></span><label>Message</label></div> -->
+
+                        <!-- <div class="btn-box"><button class="btn btn-submit" type="submit">submit</button><button class="btn btn-cancel" type="button">cancel</button>
+
+
+                        </div> -->
+
+            <!-- </form> -->
+
+      
+
+<!-- </div> -->
+

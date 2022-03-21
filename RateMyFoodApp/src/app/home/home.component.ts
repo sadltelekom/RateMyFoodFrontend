@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginserviceService } from '../serv/loginservice.service';
 
 @Component({
@@ -9,11 +10,11 @@ import { LoginserviceService } from '../serv/loginservice.service';
 export class HomeComponent implements OnInit {
   username: string= "";
 
-  constructor( private loginservice: LoginserviceService) { 
+  constructor( private loginservice: LoginserviceService, private router: Router) { 
     this.username = this.loginservice.getUsername();
   }
 
   ngOnInit(): void {
   }
-
+ 
 }
