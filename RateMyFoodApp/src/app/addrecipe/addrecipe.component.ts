@@ -24,7 +24,7 @@ export class AddrecipeComponent implements OnInit {
 
   formRecipe: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    time: new FormControl(1, Validators.required),
+    time: new FormControl('', Validators.required),
     howto: new FormControl('', Validators.required),
     category: new FormControl(''),
     ingredient: new FormControl(''),
