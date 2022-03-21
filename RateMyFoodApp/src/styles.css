@@ -73,7 +73,7 @@ body {
     cursor: pointer;
 }
 .table tbody tr:nth-child(even) {
-    background-color: green;
+    background-color: #71c092;
 } 
 
 header p{

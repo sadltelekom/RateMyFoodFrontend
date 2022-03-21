@@ -3,10 +3,16 @@
 }
 
 .table tbody tr:hover {
-    background-color: #666;
+    background-color: rgb(46, 126, 76);
     color: white;
     cursor: pointer;
 }
-.table tbody tr:nth-child(even) {
+/* .table tbody tr:nth-child(even) {
     background-color: #93f5b0;
-} 
+} */
+
+.table tbody tr:nth-child(even)::hover {
+    background-color: rgb(46, 126, 76);
+    color: white;
+    cursor: pointer;
+}
