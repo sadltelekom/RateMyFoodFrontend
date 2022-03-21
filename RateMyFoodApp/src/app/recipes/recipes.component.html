@@ -26,10 +26,16 @@
                    <input type="radio" id="stern3" name="bewertung" value="3" *ngIf="rating === 3" checked><label for="stern3" title="3 Stars" (click)="addRating(3)">3 Stars</label>
                    <input type="radio" id="stern2" name="bewertung" value="2" *ngIf="rating === 2" checked><label for="stern2" title="2 Stars" (click)="addRating(2)">2 Stars</label>
                    <input type="radio" id="stern1" name="bewertung" value="1" *ngIf="rating === 1" checked><label for="stern1" title="1 Star" (click)="addRating(1)">1 Star</label>
-                   <span>{{ numberOfRatings }}</span>
-                   <span id="Bewertung" title="Keine Bewertung">
-                   </span>
+                   
                </p> 
+           </div>
+           <div id="ratings">
+            <span *ngIf="numberOfRatings === 0">No Ratings yet</span>
+            <span *ngIf="numberOfRatings === 1">{{ numberOfRatings }} Rating</span>
+            <span *ngIf="numberOfRatings > 1">{{ numberOfRatings }} Ratings</span>
+            <span id="Bewertung" title="Keine Bewertung">
+            </span>
+
            </div>
            <div id="time">
             <p><strong>Cooking time:</strong> {{ time }} minutes</p>
