@@ -19,7 +19,7 @@ export class ReciperestservService {
   }
 
   getRecipeByName(name: string) {
-    let apiUrlNew = "http://localhost:8080/get/recipes/namepart/"+name;
+    let apiUrlNew = "http://localhost:8080/get/recipes/search/"+name;
     return this.http.get<Dbrecipe[]>(apiUrlNew);
   }
 }
