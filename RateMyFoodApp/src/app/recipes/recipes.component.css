@@ -27,7 +27,6 @@ button {
   border: 2px solid green;
   border-radius: 10px;
   padding: 4px;
-  /* margin: 8px; */
   cursor: pointer;
 }
 
@@ -41,10 +40,6 @@ h2 {
   line-height: 1.1em;
   margin-bottom: -15px;
   text-align: left;
-}
-
-#category {
-  margin-bottom: -25px;
 }
 
 #pagecontent {
@@ -86,9 +81,12 @@ h2 {
 #recipe-intro {
   width: 50%;
   margin-left: 1%;
-  display: flex;
-  flex-direction: column;
-  align-items:flex-start;
+  display: flex-wrap;
+  text-align: left;
+}
+
+#category {
+  margin-top: 10px;
 }
 
 /* Recipe */
@@ -134,10 +132,8 @@ h2 {
 
 /* Sternebewertung */
 #rating {
-  /* margin-top: -35px; */
-  /* height: 50px; */
+  margin-bottom: 5px;
   display: flex;
-  /* text-align: left; */
 }
 
 span#Bewertung label {
@@ -196,9 +192,7 @@ span#Bewertung label {
   text-shadow: 1px 1px #F8BA01, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
  }
 
-
  /* comment box */
-
 .comments-container {
   margin: 60px auto 15px;
   width: 768px;
@@ -254,7 +248,6 @@ span#Bewertung label {
   top: 25px;
   left: -55px;
 }
-
 
 .comments-list li {
   margin-bottom: 15px;
@@ -341,6 +334,7 @@ span#Bewertung label {
 .reply-list .comment-box {
   width: 610px;
 }
+
 .comment-box .comment-head {
   background: #FCFCFC;
   padding: 10px 12px;
