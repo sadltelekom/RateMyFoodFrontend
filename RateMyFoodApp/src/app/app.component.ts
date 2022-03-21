@@ -11,6 +11,7 @@ import { User } from '../app/shared/user';
 export class AppComponent implements OnInit {
   title = 'Rate my food app';
   username: string = "Guest";
+  condition: boolean = false;
 
   constructor(private router: Router, private login: LoginserviceService) {
     if (sessionStorage.getItem("username")) {
@@ -37,5 +38,9 @@ export class AppComponent implements OnInit {
 
   }
 
-  dancingfeet() { }
+  dancingfeet() { 
+    
+      this.condition = !this.condition;
+    
+  }
 }
