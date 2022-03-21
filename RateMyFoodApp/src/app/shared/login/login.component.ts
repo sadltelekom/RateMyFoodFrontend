@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
     
     this.loginservice.setUser(this.loginForm.value);
     
+    
     this.router.navigate(['']);
    }  
 
