@@ -64,9 +64,9 @@
                                             
                                         </tr>
                                     </tbody>
-                                    <tfoot>
+                                    <tfoot *ngIf="ingredientsused.length === 0">
                                         <tr>
-                                            <td colspan="2">Total: {{ ingredientsused.length }}</td>
+                                            <td colspan="2">No ingredients added yet!</td>
                                         </tr>
                                     </tfoot>
                                 </table>
