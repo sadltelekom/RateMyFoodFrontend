@@ -2,8 +2,6 @@
     margin-top: 15px;
 }
 
-.table
-
 .table tbody tr:hover {
     background-color: #666;
     color: white;
