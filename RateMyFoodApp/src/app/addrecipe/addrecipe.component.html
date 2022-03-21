@@ -43,9 +43,8 @@
                 <button class="btn btn-submit" type="button" (click)="addIngredientToList()">+</button>
             </div>
 
-
                 <div id="ingredients" *ngIf="ingredients.length">
-                        <h3>Ingredients</h3>
+                        <h3>List of Ingredients</h3>
                         <section class="container">
                             <section class="col">
                 
@@ -64,9 +63,9 @@
                                             
                                         </tr>
                                     </tbody>
-                                    <tfoot>
+                                    <tfoot *ngIf="ingredientsused.length === 0">
                                         <tr>
-                                            <td colspan="2">Total: {{ ingredientsused.length }}</td>
+                                            <td colspan="2">No ingredients added yet!</td>
                                         </tr>
                                     </tfoot>
                                 </table>

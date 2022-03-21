@@ -5,14 +5,14 @@ body {
     background: #424242;
 }
 form {
-    width: 320px;
+    width: 800px;
     margin: 45px auto;
 }
 form h1 {
     font-size: 3em;
     font-weight: 300;
     text-align: center;
-    color: #2196f3;
+    color: #4cbd6e;
 }
 form h5 {
     text-align: center;
@@ -20,7 +20,7 @@ form h5 {
     color: #c6c6c6;
 }
 form hr.sep {
-    background: #2196f3;
+    background: #4cbd6e;
     box-shadow: none;
     border: none;
     height: 2px;
@@ -31,8 +31,9 @@ form .emoji {
     font-size: 1.2em;
 }
 .group {
+    width: 320px;
     position: relative;
-    margin: 45px 0;
+    margin: 45px auto;
 }
 textarea {
     resize: none;
@@ -54,13 +55,10 @@ input:focus, textarea:focus {
 input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
     top: -14px;
     font-size: 12px;
-    color: #2196f3;
+    color: #4cbd6e;
 }
 input:focus ~ .bar:before, textarea:focus ~ .bar:before {
     width: 320px;
-}
-input[type="password"] {
-    letter-spacing: 0.3em;
 }
 label {
     color: #c6c6c6;
@@ -83,7 +81,7 @@ label {
     width: 0;
     bottom: 0px;
     position: absolute;
-    background: #2196f3;
+    background: #4cbd6e;
     transition: 300ms ease all;
     left: 0%;
 }
@@ -105,20 +103,20 @@ label {
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), 0 5px 5px rgba(0, 0, 0, 0.12);
 }
 .btn.btn-link {
-    background: #2196f3;
+    background: #93f5b0;
     color: #d3eafd;
 }
 .btn.btn-link:hover {
-    background: #0d8aee;
+    background: #71c092;
     color: #deeffd;
 }
 .btn.btn-submit {
-    background: #2196f3;
-    color: #bce0fb;
+    background: #93f5b0;
+    color: black;
 }
 .btn.btn-submit:hover {
-    background: #0d8aee;
-    color: #deeffd;
+    background: #71c092;
+    color: #ffffff;
 }
 .btn.btn-cancel {
     background: #eee;
@@ -130,4 +128,23 @@ label {
 .btn-box {
     text-align: center;
     margin: 50px 0;
+}
+.table th {
+    background-color: #e3fcea;
+    color: black;
+}
+.table tfoot {
+    background-color: white;
+}
+.table tbody tr:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+.table tbody tr:nth-child(even) {
+    background-color: white;
+} 
+#ingredients {
+    width: 600px;
+    margin: 0 auto;
 }
