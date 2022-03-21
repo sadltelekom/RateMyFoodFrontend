@@ -1,21 +1,26 @@
 <div id="pagecontent">
     <h1>Login Page</h1>
-    <p>You need to be logged in for full app functionality.</p>
-    <p>As guest you can still search Recipes but you are not able to: </p>
-    <ul>
-        <li>Add new recipes</li>
-        <li>Rate recipes</li>
-        <li>Create Comments</li>
-    </ul>
+    <div *ngIf="username === 'Guest'">
+        <p>You need to be logged in for full app functionality.</p>
+        <p>As guest you can still search Recipes but you are not able to: </p>
+        <ul>
+            <li>Add new recipes</li>
+            <li>Rate recipes</li>
+            <li>Create Comments</li>
+        </ul>
+    
 
     <div id="loginform">
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <p><label for="username">Username:</label></p>
-        <p><input type="text" id="username" formControlName="username"></p>
-        <p><label for="password">Password:</label></p>
-        <p><input type="password" id="password" formControlName="password"></p>
-        <p><input type="submit" value="Login" [disabled]="loginForm.invalid" id="login"></p>
-    </form>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <p><label for="username">Username:</label></p>
+            <p><input type="text" id="username" formControlName="username"></p>
+            <p><label for="password">Password:</label></p>
+            <p><input type="password" id="password" formControlName="password"></p>
+            <p><input type="submit" value="Login" [disabled]="loginForm.invalid" id="login"></p>
+        </form>
     </div>
-
+    </div>
+    <div *ngIf="username !== 'Guest'">
+        <h2>Welcome {{ username }}</h2>
+    </div>
 </div>
