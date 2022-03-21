@@ -10,8 +10,11 @@ import { LoginserviceService } from 'src/app/serv/loginservice.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  username: string = "Guest";
 
-  constructor(private loginservice: LoginserviceService,private router:Router) {}
+  constructor(private loginservice: LoginserviceService,private router:Router) {
+    this.username = this.loginservice.getUsername();
+  }
 
   ngOnInit(): void {
     
