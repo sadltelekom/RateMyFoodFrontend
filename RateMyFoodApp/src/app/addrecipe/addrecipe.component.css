@@ -59,9 +59,6 @@ input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid
 input:focus ~ .bar:before, textarea:focus ~ .bar:before {
     width: 320px;
 }
-input[type="password"] {
-    letter-spacing: 0.3em;
-}
 label {
     color: #c6c6c6;
     font-size: 16px;
@@ -148,3 +145,22 @@ label {
 .table tbody tr:nth-child(even) {
     background-color: white;
 } 
+
+#ingredients {
+    width: 600px;
+    display: flex-wrap;
+    /* justify-content: center; */
+    
+    
+    border: 2px solid magenta;
+}
+
+.container{
+    
+    border: 2px solid yellow;
+}
+
+.table{
+    
+    border: 2px solid magenta;
+}
