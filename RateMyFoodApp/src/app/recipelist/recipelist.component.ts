@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 import { ReciperestservService } from '../rest/reciperestserv.service';
 import { Dbrecipe } from '../shared/dbrecipe';
 
@@ -18,8 +19,20 @@ export class RecipelistComponent implements OnInit {
     } else {
       this.reciperestservive.getRecipeByName(this.activeRoute.snapshot.paramMap.get('search')!).subscribe(recipe => this.recipes = recipe)
     }
-
+    this.router.events
+      .pipe(
+        filter(value => value instanceof NavigationEnd),
+      )
+      .subscribe(event => {
+        if (!this.activeRoute.snapshot.paramMap.get('search')) {
+          this.reciperestservive.getAllRecipes().subscribe(recipe => this.recipes = recipe);
+        } else {
+          this.reciperestservive.getRecipeByName(this.activeRoute.snapshot.paramMap.get('search')!).subscribe(recipe => this.recipes = recipe)
+        }
+      });
   }
+
+
 
   ngOnInit(): void {
   }
