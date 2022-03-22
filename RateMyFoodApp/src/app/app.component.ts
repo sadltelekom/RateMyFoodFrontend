@@ -31,16 +31,15 @@ export class AppComponent implements OnInit {
   searchRecipes(term: string) {
 
     if (term !== "") {
-      console.log(term);
       this.router.navigate(['recipes/search', term]);
     }
     (<HTMLInputElement>document.getElementById("search_bar")).value = "";
 
   }
 
-  dancingfeet() { 
-    
-      this.condition = !this.condition;
-    
+  dancingfeet() {
+
+    this.condition = !this.condition;
+
   }
 }

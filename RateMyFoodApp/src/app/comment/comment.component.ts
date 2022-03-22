@@ -21,7 +21,7 @@ export class CommentComponent implements OnInit {
 
   addComment(comment: string) {
     if (comment !== '') {
-      this.commentrestservice.addComment(this.id,comment,this.userId);
+      this.commentrestservice.addComment(this.id, comment, this.userId);
       this.router.navigate(['recipes', this.id]);
     }
   }

@@ -8,17 +8,17 @@
             <li>Rate recipes</li>
             <li>Create Comments</li>
         </ul>
-    
 
-    <div id="loginform">
-        <form [formGroup]="loginForm" (ngSubmit)="login()">
-            <p><label for="username">Username:</label></p>
-            <p><input type="text" id="username" formControlName="username"></p>
-            <p><label for="password">Password:</label></p>
-            <p><input type="password" id="password" formControlName="password"></p>
-            <p><input type="submit" value="Login" [disabled]="loginForm.invalid" id="login"></p>
-        </form>
-    </div>
+
+        <div id="loginform">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <p><label for="username">Username:</label></p>
+                <p><input type="text" id="username" formControlName="username"></p>
+                <p><label for="password">Password:</label></p>
+                <p><input type="password" id="password" formControlName="password"></p>
+                <p><input type="submit" value="Login" [disabled]="loginForm.invalid" id="login"></p>
+            </form>
+        </div>
     </div>
     <div *ngIf="username !== 'Guest'">
         <h2>Welcome {{ username }}</h2>

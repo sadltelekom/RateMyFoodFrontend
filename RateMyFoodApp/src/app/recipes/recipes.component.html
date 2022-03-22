@@ -1,94 +1,99 @@
 <div id="pagecontent">
 
-    <section id="content-top">
-        <section id="picture-left">
-            <div id="recipe_picture">
-                <img [src]="pictureurl[pictureindex]" [alt]="name" title="" id="image" (click)="addPictureindex()">
-                
-            </div>
-            <div>
-            <p id="addpicture" *ngIf="username !== 'Guest'"><button (click)="addPicture()">Add Picture</button></p>
-            </div>
-        </section>
-        <section id="recipe-intro">
-            <div id="recipe_name">
-                <h2>{{ name }}</h2>
-            </div>
-            <div id="category">
-                <!-- <h3>Category</h3> -->
-                <p>{{ categoryname }}</p>
-            </div>
-            <div id="rating">
-                <!-- <h3>Rating :</h3> {{ rating }} -->
-                <p class="sternebewertung">
-                   <input type="radio" id="stern5" name="bewertung" value="5" *ngIf="rating === 5" checked><label for="stern5" title="5 Stars" (click)="addRating(5)">5 Stars </label>
-                   <input type="radio" id="stern4" name="bewertung" value="4" *ngIf="rating === 4" checked><label for="stern4" title="4 Stars" (click)="addRating(4)">4 Stars</label>
-                   <input type="radio" id="stern3" name="bewertung" value="3" *ngIf="rating === 3" checked><label for="stern3" title="3 Stars" (click)="addRating(3)">3 Stars</label>
-                   <input type="radio" id="stern2" name="bewertung" value="2" *ngIf="rating === 2" checked><label for="stern2" title="2 Stars" (click)="addRating(2)">2 Stars</label>
-                   <input type="radio" id="stern1" name="bewertung" value="1" *ngIf="rating === 1" checked><label for="stern1" title="1 Star" (click)="addRating(1)">1 Star</label>
-                   
-               </p> 
-           </div>
-           <div id="ratings">
-            <span *ngIf="numberOfRatings === 0">No Ratings yet</span>
-            <span *ngIf="numberOfRatings === 1">{{ numberOfRatings }} Rating</span>
-            <span *ngIf="numberOfRatings > 1">{{ numberOfRatings }} Ratings</span>
-            <span id="Bewertung" title="Keine Bewertung">
-            </span>
+  <section id="content-top">
+    <section id="picture-left">
+      <div id="recipe_picture">
+        <img [src]="pictureurl[pictureindex]" [alt]="name" title="" id="image" (click)="addPictureindex()">
 
-           </div>
-           <div id="time">
-            <p><strong>Cooking time:</strong> {{ time }} minutes</p>
-            </div>
-        </section>
+      </div>
+      <div>
+        <p id="addpicture" *ngIf="username !== 'Guest'"><button (click)="addPicture()">Add Picture</button></p>
+      </div>
     </section>
+    <section id="recipe-intro">
+      <div id="recipe_name">
+        <h2>{{ name }}</h2>
+      </div>
+      <div id="category">
+        <!-- <h3>Category</h3> -->
+        <p>{{ categoryname }}</p>
+      </div>
+      <div id="rating">
+        <!-- <h3>Rating :</h3> {{ rating }} -->
+        <p class="sternebewertung">
+          <input type="radio" id="stern5" name="bewertung" value="5" *ngIf="rating === 5" checked><label for="stern5"
+            title="5 Stars" (click)="addRating(5)">5 Stars </label>
+          <input type="radio" id="stern4" name="bewertung" value="4" *ngIf="rating === 4" checked><label for="stern4"
+            title="4 Stars" (click)="addRating(4)">4 Stars</label>
+          <input type="radio" id="stern3" name="bewertung" value="3" *ngIf="rating === 3" checked><label for="stern3"
+            title="3 Stars" (click)="addRating(3)">3 Stars</label>
+          <input type="radio" id="stern2" name="bewertung" value="2" *ngIf="rating === 2" checked><label for="stern2"
+            title="2 Stars" (click)="addRating(2)">2 Stars</label>
+          <input type="radio" id="stern1" name="bewertung" value="1" *ngIf="rating === 1" checked><label for="stern1"
+            title="1 Star" (click)="addRating(1)">1 Star</label>
 
-    <section id="content-bottom">
-        <section id="instructions-left">
-            <div id="recipe">
-                <h3>Instructions</h3>
-                <p>{{ recipe }}</p>
-            </div>
-        </section>
-        <section id="instructions-right">
-            <div id="ingredients" >
-                <h3>Ingredients</h3>
-                <section class="container">
-                    <section class="col">
-        
-                        <table id="ingredientstable" class="table" >
-                            <thead *ngIf="ingredients.length">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Amount</th>
-                                </tr>
-                            </thead>
-        
-                            <tbody>
-                                <tr *ngFor="let ingredient of ingredients">
-                                    <td>{{ ingredient.name }}</td>
-                                    <td>{{ ingredient.amount }}</td>
-                                    
-                                </tr>
-                            </tbody>
-                            <tfoot *ngIf="ingredients.length === 0">
-                                <tr>
-                                    <td colspan="2">Please see instructions for more information!</td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </section>
-                </section>
-            </div>
-        </section>
+        </p>
+      </div>
+      <div id="ratings">
+        <span *ngIf="numberOfRatings === 0">No Ratings yet</span>
+        <span *ngIf="numberOfRatings === 1">{{ numberOfRatings }} Rating</span>
+        <span *ngIf="numberOfRatings > 1">{{ numberOfRatings }} Ratings</span>
+        <span id="Bewertung" title="Keine Bewertung">
+        </span>
+
+      </div>
+      <div id="time">
+        <p><strong>Cooking time:</strong> {{ time }} minutes</p>
+      </div>
     </section>
-    
+  </section>
+
+  <section id="content-bottom">
+    <section id="instructions-left">
+      <div id="recipe">
+        <h3>Instructions</h3>
+        <p>{{ recipe }}</p>
+      </div>
+    </section>
+    <section id="instructions-right">
+      <div id="ingredients">
+        <h3>Ingredients</h3>
+        <section class="container">
+          <section class="col">
+
+            <table id="ingredientstable" class="table">
+              <thead *ngIf="ingredients.length">
+                <tr>
+                  <th>Name</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr *ngFor="let ingredient of ingredients">
+                  <td>{{ ingredient.name }}</td>
+                  <td>{{ ingredient.amount }}</td>
+
+                </tr>
+              </tbody>
+              <tfoot *ngIf="ingredients.length === 0">
+                <tr>
+                  <td colspan="2">Please see instructions for more information!</td>
+                </tr>
+              </tfoot>
+            </table>
+          </section>
+        </section>
+      </div>
+    </section>
+  </section>
+
   <div class="comments-container">
     <h1>Comments</h1>
 
     <ul id="comments-list" class="comments-list" *ngFor="let comment of comments">
       <li>
-        <div class="comment-main-level" >
+        <div class="comment-main-level">
           <div class="comment-avatar"><img src="../assets/images/favicon.png" alt=""></div>
           <div class="comment-box">
             <div class="comment-head">
@@ -97,7 +102,7 @@
               <i class="fa fa-heart"></i>
             </div>
             <div class="comment-content">
-                {{ comment.comment }}
+              {{ comment.comment }}
             </div>
           </div>
         </div>
@@ -107,35 +112,35 @@
     <!-- No Comments yet -->
 
     <ul id="comments-list" class="comments-list" *ngIf="username !== 'Guest' && comments.length === 0">
-        <li>
-          <div class="comment-main-level" >
-            <div class="comment-avatar"><img src="../assets/images/favicon.png" alt=""></div>
-            <div class="comment-box">
-              <div class="comment-head">
-                <h6 class="comment-name no login" ><a>Be the first to comment this recipe.</a></h6>
-              </div>
+      <li>
+        <div class="comment-main-level">
+          <div class="comment-avatar"><img src="../assets/images/favicon.png" alt=""></div>
+          <div class="comment-box">
+            <div class="comment-head">
+              <h6 class="comment-name no login"><a>Be the first to comment this recipe.</a></h6>
             </div>
           </div>
-        </li>
-      </ul>
+        </div>
+      </li>
+    </ul>
 
     <!-- Comments Guest Login -->
 
     <ul id="comments-list" class="comments-list" *ngIf="username === 'Guest'">
-        <li>
-          <div class="comment-main-level" >
-            <div class="comment-avatar"><img src="../assets/images/favicon.png" alt=""></div>
-            <div class="comment-box">
-              <div class="comment-head">
-                <h6 class="comment-name no login"><a href="login">Please login to comment.</a></h6>
-              </div>
+      <li>
+        <div class="comment-main-level">
+          <div class="comment-avatar"><img src="../assets/images/favicon.png" alt=""></div>
+          <div class="comment-box">
+            <div class="comment-head">
+              <h6 class="comment-name no login"><a href="login">Please login to comment.</a></h6>
             </div>
           </div>
-        </li>
-      </ul>
+        </div>
+      </li>
+    </ul>
 
     <section id="addcommentcontainer">
-        <p *ngIf=" username !== 'Guest'"><button (click)="addComment()" id="addcommentbutton">Add Comment</button></p>
+      <p *ngIf=" username !== 'Guest'"><button (click)="addComment()" id="addcommentbutton">Add Comment</button></p>
     </section>
   </div>
 </div>

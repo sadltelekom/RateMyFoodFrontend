@@ -31,7 +31,7 @@ export class AddrecipeComponent implements OnInit {
     amountused: new FormControl(''),
   });
 
-  constructor(private categoryrestserv: CategoryrestservService, private ingredientrestserv: IngredientrestservService, private http: HttpClient,private router: Router) {
+  constructor(private categoryrestserv: CategoryrestservService, private ingredientrestserv: IngredientrestservService, private http: HttpClient, private router: Router) {
     this.categoryrestserv.getAllCategorys().subscribe(category => this.categories = category);
     this.ingredientrestserv.getAllIngredients().subscribe(ingredient => this.ingredients = ingredient);
   }
@@ -40,26 +40,26 @@ export class AddrecipeComponent implements OnInit {
   }
 
   insertRecipe() {
-    let newRecipe : Recipedetails = {
-      ingredients : this.ingredientsused,
+    let newRecipe: Recipedetails = {
+      ingredients: this.ingredientsused,
       name: this.formRecipe.get('name')?.value,
       time: this.formRecipe.get('time')?.value,
       howto: this.formRecipe.get('howto')?.value,
       category: this.formRecipe.get('category')?.value
     };
-    console.log(JSON.parse(JSON.stringify(newRecipe))); 
-    let headers  = new HttpHeaders({'Content-Type': 'application/json'});
-    
-    this.http.post("http://localhost:8080/post/recipes/",JSON.parse(JSON.stringify(newRecipe)),{headers}).subscribe();
+
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+    this.http.post("http://localhost:8080/post/recipes/", JSON.parse(JSON.stringify(newRecipe)), { headers }).subscribe();
     this.router.navigate(['recipes']);
 
   }
 
-  addIngredientToList() {   
+  addIngredientToList() {
     let newIngredient: Dbingredient = this.formRecipe.get('ingredient')?.value;
     newIngredient.amount = this.formRecipe.get('amountused')?.value;
     let newStringIngredient: Ingredient = {
-      id : newIngredient.id.toString(),
+      id: newIngredient.id.toString(),
       name: newIngredient.name,
       amount: newIngredient.amount
 

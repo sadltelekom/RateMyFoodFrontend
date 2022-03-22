@@ -10,10 +10,10 @@ import { Dbrecipe } from '../shared/dbrecipe';
 })
 export class RecipelistComponent implements OnInit {
 
-  recipes : Dbrecipe[] = [];
+  recipes: Dbrecipe[] = [];
 
-  constructor(private reciperestservive: ReciperestservService,private router: Router,private activeRoute: ActivatedRoute) { 
-    if(!this.activeRoute.snapshot.paramMap.get('search')) {
+  constructor(private reciperestservive: ReciperestservService, private router: Router, private activeRoute: ActivatedRoute) {
+    if (!this.activeRoute.snapshot.paramMap.get('search')) {
       this.reciperestservive.getAllRecipes().subscribe(recipe => this.recipes = recipe);
     } else {
       this.reciperestservive.getRecipeByName(this.activeRoute.snapshot.paramMap.get('search')!).subscribe(recipe => this.recipes = recipe)
@@ -25,8 +25,8 @@ export class RecipelistComponent implements OnInit {
   }
 
   openRecipe(id: number) {
-    this.router.navigate(['recipes',id]);
+    this.router.navigate(['recipes', id]);
   }
 
-  
+
 }

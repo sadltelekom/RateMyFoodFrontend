@@ -2,7 +2,6 @@
 
     <p><img src="../assets/images/head.png" alt="Rate my food logo" title="Rate my food logo" id="logo"></p>
     <div id="top_menu_box">
-        <!-- <p><input type="text" id="search_bar" placeholder="Search in recipes"  #searchterm><button (click)="searchRecipes(searchterm.value)">🔍</button></p> -->
         <nav class="top_menu">
             <ul>
                 <li><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact:true }">Home</a></li>
@@ -30,13 +29,13 @@
                 (click)="dancingfeet()"></p>
 
         <div *ngIf="condition" id="easteregg">
-          
-            
-                    <video autoplay (ended)='dancingfeet()'>
-                    <source src="../assets/videos/Hobbitfeetdance.mp4" type="video/mp4">
-                </video>
-            
+
+
+            <video autoplay (ended)='dancingfeet()'>
+                <source src="../assets/videos/Hobbitfeetdance.mp4" type="video/mp4">
+            </video>
+
         </div>
     </div>
-    <!-- <p><button img src="../assets/images/zeegermans2.png" alt="Zee germans logo" title="Zee germans logo" (click)="dancingfeet()" id="easteregg"></button></p> -->
+
 </footer>

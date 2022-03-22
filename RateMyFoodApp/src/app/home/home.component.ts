@@ -8,13 +8,13 @@ import { LoginserviceService } from '../serv/loginservice.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  username: string= "";
+  username: string = "";
 
-  constructor( private loginservice: LoginserviceService, private router: Router) { 
+  constructor(private loginservice: LoginserviceService, private router: Router) {
     this.username = this.loginservice.getUsername();
   }
 
   ngOnInit(): void {
   }
- 
+
 }

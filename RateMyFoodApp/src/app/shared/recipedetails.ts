@@ -1,4 +1,3 @@
-import { Dbingredient } from "./dbingredients";
 import { Ingredient } from "./ingredient";
 
 export type Recipedetails = {

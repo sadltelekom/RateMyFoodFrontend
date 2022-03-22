@@ -18,7 +18,7 @@ export class FileuploadComponent implements OnInit {
   fileInfos?: Observable<any>;
   id: number;
 
-  constructor(private uploadService: FileuploadService,private activeRoute: ActivatedRoute,private router: Router) { 
+  constructor(private uploadService: FileuploadService, private activeRoute: ActivatedRoute, private router: Router) {
     if (this.activeRoute.snapshot.paramMap.get('id')) {
       this.id = Number(this.activeRoute.snapshot.paramMap.get('id'));
     }
@@ -28,68 +28,59 @@ export class FileuploadComponent implements OnInit {
   }
 
 
-  // Drag Drop Start
-  file:any;
-  getFile(event:any) {
+
+  file: any;
+  getFile(event: any) {
     this.file = event.target.files[0]
-    
-    console.log('file', this.file);
 
   }
 
-  // uploadFile() {
-  //   let formData = new FormData();
-  //   formData.set("file", this.file)
 
-  // }
-  // Drag Drop End
 
 
 
   ngOnInit(): void {
-    // this.fileInfos = this.uploadService.getFiles();
+
   }
 
   selectFile(event: any): void {
     this.selectedFiles = event.target.files;
   }
 
-  // upload(): void {
+
   uploadFile() {
     let formData = new FormData();
     formData.set("file", this.file)
     this.progress = 0;
-    // if (this.selectedFiles) {
-    //   const file: File | null = this.selectedFiles.item(0);
-      if (this.file) {
-        // this.currentFile = this.file;
-        this.uploadService.upload(this.file,this.id).subscribe({
-          next: (event: any) => {
 
-            console.log("upload: ", this.uploadService);
+    if (this.file) {
 
-            if (event.type === HttpEventType.UploadProgress) {
+      this.uploadService.upload(this.file, this.id).subscribe({
+        next: (event: any) => {
 
-              console.log("any progress?");
 
-              this.progress = Math.round(100 * event.loaded / event.total);
-            } 
-          },
-          error: (err: any) => {
-            console.log(err);
-            this.progress = 0;
-            
-            if (err.error && err.error.message) {
-              console.log("PUnkt3");
-              this.message = err.error.message;
-            } 
-            // this.currentFile = undefined;
+
+          if (event.type === HttpEventType.UploadProgress) {
+
+
+
+            this.progress = Math.round(100 * event.loaded / event.total);
           }
-        });
-      }
-      // this.selectedFiles = undefined;
-    // }
-    console.log("PUnkt5");
+        },
+        error: (err: any) => {
+
+          this.progress = 0;
+
+          if (err.error && err.error.message) {
+
+            this.message = err.error.message;
+          }
+
+        }
+      });
+    }
+
+
     this.router.navigate(['recipes', this.id]);
   }
 

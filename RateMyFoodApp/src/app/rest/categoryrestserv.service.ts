@@ -11,7 +11,7 @@ export class CategoryrestservService {
   constructor(private http: HttpClient) { }
 
   getCategoryforRecipe(id: number) {
-    let apiUrlNew = this.apiUrl+ id;
+    let apiUrlNew = this.apiUrl + id;
     return this.http.get<Dbcategory>(apiUrlNew);
   }
 

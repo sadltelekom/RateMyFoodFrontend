@@ -25,7 +25,6 @@ export class RecipesComponent implements OnInit {
   name: string = "";
   pictureurl: string[] = [];
   pictureindex: number = 0;
-  // http://localhost:8080/recipes/images/  
   recipe: string = "";
   time: number = 0;
 
@@ -61,8 +60,7 @@ export class RecipesComponent implements OnInit {
     this.ratingrestservice.getNumberOfRatings(this.id).subscribe(number => this.numberOfRatings = number.length);
     this.reciperestservive.getRecipeById(this.id).subscribe(recipe => {
 
-      this.recipeObject = recipe;
-      console.log(this.recipeObject);
+      this.recipeObject = recipe;      
       this.name = this.recipeObject[0].name;
       this.recipe = this.recipeObject[0].howto;
       this.time = this.recipeObject[0].time;

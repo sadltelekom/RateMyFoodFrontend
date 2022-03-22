@@ -1,4 +1,7 @@
 <div id="pagecontent">
     <h2>Your Comment goes here</h2>
-    <textarea type="text" id="comment" placeholder="Your comment goes here" #comment></textarea><button (click)="addComment(comment.value)">➕</button>
+    <p><textarea type="text" id="comment" placeholder="Your comment goes here" cols=80 rows=5 #comment></textarea></p>
+    <div class="btn-box">
+        <button class="btn btn-submit" type="button" (click)="addComment(comment.value)">Add comment</button>
+    </div>
 </div>
